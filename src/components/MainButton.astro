@@ -1,0 +1,17 @@
+<button
+  class="text-text font-body py-2 px-4 rounded-md font-light cursor-pointer"
+>
+  <slot />
+</button>
+
+<style>
+  button {
+    color: var(--color-text);
+    box-shadow: 0 5px 10px -2px var(--color-primary);
+    transition: all 0.2s ease-in-out;
+  }
+
+  button:hover {
+    box-shadow: 0 0 10px var(--color-primary);
+  }
+</style>

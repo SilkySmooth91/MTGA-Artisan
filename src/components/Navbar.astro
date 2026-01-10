@@ -1,0 +1,42 @@
+---
+import MainButton from "./MainButton.astro";
+---
+
+<div class="w-full">
+  <nav class="navbar w-full max-w-screen-2xl mx-auto px-4 py-3">
+    <div class="navbar-container flex justify-center items-center gap-2">
+      <ul
+        class="navbar-menu flex justify-center items-center gap-10 w-full text-[#B3B3B3]! text-xl"
+      >
+        <li class="navbar-item">
+          <a href="/about" class="navbar-link">About</a>
+        </li>
+        <li class="navbar-item">
+          <a href="/cards" class="navbar-link">Cards</a>
+        </li>
+        <li class="navbar-item">
+          <a href="/decks" class="navbar-link">Decks</a>
+        </li>
+        <li class="navbar-item">
+          <a href="/" class="navbar-logo">
+            <img
+              src="/fire_hammer_logo.png"
+              alt="MTGA Artisan Logo"
+              class="h-14 w-14"
+            />
+          </a>
+        </li>
+        <li class="navbar-item">
+          <a href="/contact" class="navbar-link">Contact</a>
+        </li>
+        <li class="navbar-item">
+          <a href="/contact" class="navbar-link">Contact</a>
+        </li>
+        <li class="navbar-item">
+          <a href="/contact" class="navbar-link">Contact</a>
+        </li>
+      </ul>
+      <MainButton>Community</MainButton>
+    </div>
+  </nav>
+</div>
