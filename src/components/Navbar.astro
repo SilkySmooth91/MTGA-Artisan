@@ -1,42 +1,98 @@
 ---
 import MainButton from "./MainButton.astro";
+import burgerIcon from "../assets/burger-menu-icon.svg";
 ---
 
-<div class="w-full">
-  <nav class="navbar w-full max-w-screen-2xl mx-auto px-4 py-3">
-    <div class="navbar-container flex justify-center items-center gap-2">
+<div class="sticky top-0 left-0 z-9999 w-full shadow shadow-black/75">
+  <nav class="navbar w-full max-w-screen-2xl mx-auto px-6 py-9">
+    <!-- Mobile Layout -->
+    <div class="md:hidden flex justify-between items-center">
+      <!-- Burger Menu Button -->
+      <button class="burger-menu z-50" id="mobile-menu-button">
+        <img src={burgerIcon.src} alt="Menu" class="w-6 h-10" />
+      </button>
+      <!-- Logo mobile -->
+      <a href="/" class="navbar-logo">
+        <img
+          src="/fire_hammer_logo.png"
+          alt="MTGA Artisan Logo"
+          class="h-12 w-12 ml-5"
+        />
+      </a>
+      <!-- Community button Mobile -->
+      <MainButton>Community</MainButton>
+    </div>
+
+    <!-- Desktop Layout -->
+    <div
+      class="navbar-container hidden md:flex justify-center items-center gap-2"
+    >
       <ul
         class="navbar-menu flex justify-center items-center gap-10 w-full text-[#B3B3B3]! text-xl"
       >
         <li class="navbar-item">
+          <a href="/Inn" class="navbar-link">Inn</a>
+        </li>
+        <li class="navbar-item">
           <a href="/about" class="navbar-link">About</a>
         </li>
         <li class="navbar-item">
-          <a href="/cards" class="navbar-link">Cards</a>
-        </li>
-        <li class="navbar-item">
-          <a href="/decks" class="navbar-link">Decks</a>
+          <a href="/play-artisan" class="navbar-link">Play Artisan</a>
         </li>
         <li class="navbar-item">
           <a href="/" class="navbar-logo">
             <img
               src="/fire_hammer_logo.png"
               alt="MTGA Artisan Logo"
-              class="h-14 w-14"
+              class="h-18 w-18"
             />
           </a>
         </li>
         <li class="navbar-item">
-          <a href="/contact" class="navbar-link">Contact</a>
+          <a href="/news" class="navbar-link">News</a>
         </li>
         <li class="navbar-item">
-          <a href="/contact" class="navbar-link">Contact</a>
+          <a href="/events" class="navbar-link">Events</a>
         </li>
         <li class="navbar-item">
-          <a href="/contact" class="navbar-link">Contact</a>
+          <a href="/rankings" class="navbar-link">Rankings</a>
         </li>
       </ul>
       <MainButton>Community</MainButton>
     </div>
+    <!-- Mobile Overlay Menu (hidden by default) -->
+    <div class="mobile-menu-overlay hidden md:hidden" id="mobile-menu">
+      <ul>
+        <li class="navbar-item">
+          <a href="/Inn" class="navbar-link">Inn</a>
+        </li>
+        <li class="navbar-item">
+          <a href="/About" class="navbar-link">About</a>
+        </li>
+        <li class="navbar-item">
+          <a href="/play-artisan" class="navbar-link">Play Artisan</a>
+        </li>
+        <li class="navbar-item">
+          <a href="/news" class="navbar-link">News</a>
+        </li>
+        <li class="navbar-item">
+          <a href="/events" class="navbar-link">Events</a>
+        </li>
+        <li class="navbar-item">
+          <a href="/rankings" class="navbar-link">Rankings</a>
+        </li>
+      </ul>
+    </div>
   </nav>
 </div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const menuButton = document.getElementById("mobile-menu-button");
+    const mobileMenu = document.getElementById("mobile-menu");
+
+    menuButton?.addEventListener("click", () => {
+      mobileMenu?.classList.toggle("hidden");
+    });
+  });
+</script>
