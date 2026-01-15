@@ -1,23 +1,45 @@
 ---
-const { class: className, ...rest } = Astro.props;
+const {
+  class: className,
+  href,
+  type = "button",
+  disabled = false,
+  ...rest
+} = Astro.props;
+
+const isLink = typeof href === "string" && href.length > 0;
 ---
 
-<button
-  class={`text-primary font-body w-[305px] h-[305px] p-4 bg-background rounded-full font-light text-xs md:text-base cursor-pointer flex flex-col items-center justify-center gap-3 text-center ${className ?? ""}`}
-  {...rest}
->
-  <slot name="icon" />
-  <slot />
-</button>
+{
+  isLink ?
+    <a
+      href={href}
+      class={`big-button text-primary font-body w-[305px] h-[305px] p-4 bg-background rounded-full font-light text-xs md:text-base cursor-pointer flex flex-col items-center justify-center gap-3 text-center ${className ?? ""}`}
+      aria-disabled={disabled ? "true" : undefined}
+      {...rest}
+    >
+      <slot name="icon" />
+      <slot />
+    </a>
+  : <button
+      type={type}
+      disabled={disabled}
+      class={`big-button text-primary font-body w-[305px] h-[305px] p-4 bg-background rounded-full font-light text-xs md:text-base cursor-pointer flex flex-col items-center justify-center gap-3 text-center ${className ?? ""}`}
+      {...rest}
+    >
+      <slot name="icon" />
+      <slot />
+    </button>
+}
 
 <style>
-  button {
+  .big-button {
     color: var(--color-text);
     box-shadow: 0 5px 10px -2px var(--color-primary);
     transition: all 0.2s ease-in-out;
   }
 
-  button:hover {
+  .big-button:hover {
     box-shadow: 0 0 10px var(--color-primary);
   }
 </style>

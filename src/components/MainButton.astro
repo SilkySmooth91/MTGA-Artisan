@@ -1,22 +1,43 @@
 ---
-const { class: className, ...rest } = Astro.props;
+const {
+  class: className,
+  href,
+  type = "button",
+  disabled = false,
+  ...rest
+} = Astro.props;
+
+const isLink = typeof href === "string" && href.length > 0;
 ---
 
-<button
-  class={`text-text font-body py-3 px-4 md:py-4 md:px-7 bg-background rounded-md font-light text-xs md:text-base cursor-pointer ${className ?? ""}`}
-  {...rest}
->
-  <slot />
-</button>
+{
+  isLink ?
+    <a
+      href={href}
+      class={`main-button text-text font-body py-3 px-4 md:py-4 md:px-7 bg-background rounded-md font-light text-xs md:text-base cursor-pointer ${className ?? ""}`}
+      aria-disabled={disabled ? "true" : undefined}
+      {...rest}
+    >
+      <slot />
+    </a>
+  : <button
+      type={type}
+      disabled={disabled}
+      class={`main-button text-text font-body py-3 px-4 md:py-4 md:px-7 bg-background rounded-md font-light text-xs md:text-base cursor-pointer ${className ?? ""}`}
+      {...rest}
+    >
+      <slot />
+    </button>
+}
 
 <style>
-  button {
+  .main-button {
     color: var(--color-text);
     box-shadow: 0 5px 10px -2px var(--color-primary);
     transition: all 0.2s ease-in-out;
   }
 
-  button:hover {
+  .main-button:hover {
     box-shadow: 0 0 10px var(--color-primary);
   }
 </style>

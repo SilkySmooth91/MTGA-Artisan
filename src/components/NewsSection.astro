@@ -1,0 +1,20 @@
+---
+import NewsCard from "./NewsCard.astro";
+---
+
+<section
+  class="w-full max-w-screen-2xl mx-auto md:mt-48 grid grid-cols-1 md:grid-cols-3 gap-6 justify-items-center"
+  id="news-section"
+>
+  <div>
+    <h2 class="text-primary/80 font-heading text-6xl">News</h2>
+  </div>
+  <div>
+    <div class="mb-18">
+      <NewsCard />
+    </div>
+    <div class="mb-18">
+      <NewsCard />
+    </div>
+  </div>
+</section>

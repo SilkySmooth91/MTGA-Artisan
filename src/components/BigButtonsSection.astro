@@ -1,12 +1,36 @@
 ---
 import BigButton from "./BigButton.astro";
+import calendarIcon from "../assets/icons/calendar icon.svg";
+import championshipIcon from "../assets/icons/championship 1 icon.svg";
+import cardIcon from "../assets/icons/card 1 icon.svg";
 ---
 
 <section
   class="w-full max-w-screen-2xl mx-auto md:mt-32 grid grid-cols-1 md:grid-cols-3 gap-6 justify-items-center"
   id="buttons-container"
 >
-  <BigButton>Decklists</BigButton>
-  <BigButton>Meta Report</BigButton>
-  <BigButton>Rules</BigButton>
+  <BigButton href="#">
+    <span class="mb-14">
+      <img src={calendarIcon.src} alt="calendar icon" />
+    </span>
+    <span class="text-[#FF4545]/80 font-heading font-normal text-3xl">
+      Next Event
+    </span>
+  </BigButton>
+  <BigButton href="#">
+    <span class="mb-12">
+      <img src={championshipIcon.src} alt="championship icon" />
+    </span>
+    <span class="text-[#FF4545]/80 font-heading font-normal text-3xl">
+      Rankings
+    </span>
+  </BigButton>
+  <BigButton href="#">
+    <span class="mb-14">
+      <img src={cardIcon.src} alt="championship icon" />
+    </span>
+    <span class="text-[#FF4545]/80 font-heading font-normal text-3xl">
+      Decks
+    </span>
+  </BigButton>
 </section>
