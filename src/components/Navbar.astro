@@ -25,10 +25,10 @@ import burgerIcon from "../assets/burger-menu-icon.svg";
 
     <!-- Desktop Layout -->
     <div
-      class="navbar-container hidden md:flex justify-center items-center gap-2"
+      class="navbar-container hidden md:grid grid-cols-[1fr_auto_1fr] items-center"
     >
       <ul
-        class="navbar-menu flex justify-center items-center gap-10 w-full text-[#B3B3B3]! text-xl"
+        class="navbar-menu flex justify-center items-center gap-10 text-[#B3B3B3]! text-xl col-start-2"
       >
         <li class="navbar-item">
           <a href="/Inn" class="navbar-link">Inn</a>
@@ -58,7 +58,9 @@ import burgerIcon from "../assets/burger-menu-icon.svg";
           <a href="/rankings" class="navbar-link">Rankings</a>
         </li>
       </ul>
-      <MainButton>Community</MainButton>
+      <div class="col-start-3 justify-self-end">
+        <MainButton class="md:!mr-5">Community</MainButton>
+      </div>
     </div>
     <!-- Mobile Overlay Menu (hidden by default) -->
     <div class="mobile-menu-overlay hidden md:hidden" id="mobile-menu">

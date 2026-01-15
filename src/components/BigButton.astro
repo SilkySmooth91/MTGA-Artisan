@@ -3,9 +3,10 @@ const { class: className, ...rest } = Astro.props;
 ---
 
 <button
-  class={`text-text font-body py-3 px-4 md:py-4 md:px-7 bg-background rounded-md font-light text-xs md:text-base cursor-pointer ${className ?? ""}`}
+  class={`text-primary font-body w-[305px] h-[305px] p-4 bg-background rounded-full font-light text-xs md:text-base cursor-pointer flex flex-col items-center justify-center gap-3 text-center ${className ?? ""}`}
   {...rest}
 >
+  <slot name="icon" />
   <slot />
 </button>
 
