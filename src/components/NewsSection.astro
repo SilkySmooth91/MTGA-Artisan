@@ -3,13 +3,16 @@ import NewsCard from "./NewsCard.astro";
 ---
 
 <section
-  class="w-full max-w-screen-2xl mx-auto md:mt-48 grid grid-cols-1 md:grid-cols-3 gap-6 justify-items-center"
+  class="w-full max-w-screen-2xl mx-auto mt-60 md:mt-52 px-34 grid grid-cols-1 md:grid-cols-[minmax(0,1fr)_492px_minmax(0,1fr)] gap-6 justify-items-center md:justify-items-stretch"
   id="news-section"
 >
-  <div>
-    <h2 class="text-primary/80 font-heading text-6xl">News</h2>
+  <div class="md:justify-self-start">
+    <h2 class="text-primary/80 font-heading text-6xl mb-15">News</h2>
   </div>
-  <div>
+  <div class="md:justify-self-center">
+    <div class="mb-18">
+      <NewsCard />
+    </div>
     <div class="mb-18">
       <NewsCard />
     </div>

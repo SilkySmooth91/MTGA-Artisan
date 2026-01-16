@@ -1,0 +1,33 @@
+---
+const {
+  class: className,
+  href,
+  type = "button",
+  disabled = false,
+  ...rest
+} = Astro.props;
+
+const isLink = typeof href === "string" && href.length > 0;
+---
+
+{
+  isLink ? (
+    <a
+      href={href}
+      class={`secondary-button text-text font-body w-[140px] py-4 px-7 bg-primary rounded-md font-light md:text-base cursor-pointer ${className ?? ""}`}
+      aria-disabled={disabled ? "true" : undefined}
+      {...rest}
+    >
+      <slot />
+    </a>
+  ) : (
+    <button
+      type={type}
+      disabled={disabled}
+      class={`secondary-button text-text font-body w-[140px] py-4 px-7 bg-primary rounded-md font-light md:text-base cursor-pointer ${className ?? ""}`}
+      {...rest}
+    >
+      <slot />
+    </button>
+  )
+}

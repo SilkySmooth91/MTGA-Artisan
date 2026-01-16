@@ -11,23 +11,25 @@ const isLink = typeof href === "string" && href.length > 0;
 ---
 
 {
-  isLink ?
+  isLink ? (
     <a
       href={href}
-      class={`main-button text-text font-body py-3 px-4 md:py-4 md:px-7 bg-background rounded-md font-light text-xs md:text-base cursor-pointer ${className ?? ""}`}
+      class={`main-button text-text font-body py-4 px-7 bg-background rounded-md font-light md:text-base cursor-pointer ${className ?? ""}`}
       aria-disabled={disabled ? "true" : undefined}
       {...rest}
     >
       <slot />
     </a>
-  : <button
+  ) : (
+    <button
       type={type}
       disabled={disabled}
-      class={`main-button text-text font-body py-3 px-4 md:py-4 md:px-7 bg-background rounded-md font-light text-xs md:text-base cursor-pointer ${className ?? ""}`}
+      class={`main-button text-text font-body py-4 px-7 bg-background rounded-md font-light md:text-base cursor-pointer ${className ?? ""}`}
       {...rest}
     >
       <slot />
     </button>
+  )
 }
 
 <style>
