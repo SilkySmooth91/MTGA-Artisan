@@ -1,6 +1,9 @@
 ---
+import { Image } from "astro:assets";
 import MainButton from "./MainButton.astro";
 import burgerIcon from "../assets/burger-menu-icon.svg";
+import closeIcon from "../assets/icons/close_icon.svg";
+import fireHammerLogo from "../assets/fire_hammer_logo.webp";
 ---
 
 <div class="w-full md:shadow md:shadow-black/75">
@@ -15,10 +18,14 @@ import burgerIcon from "../assets/burger-menu-icon.svg";
       </div>
       <!-- Logo mobile -->
       <a href="/" class="navbar-logo justify-self-center">
-        <img
-          src="/fire_hammer_logo.png"
+        <Image
+          src={fireHammerLogo}
           alt="MTGA Artisan Logo"
+          width={72}
+          height={72}
           class="h-18 w-18"
+          loading="eager"
+          fetchpriority="high"
         />
       </a>
       <!-- Community button Mobile -->
@@ -35,7 +42,7 @@ import burgerIcon from "../assets/burger-menu-icon.svg";
         class="navbar-menu flex justify-center items-center gap-10 text-[#B3B3B3]! text-xl col-start-2"
       >
         <li class="navbar-item">
-          <a href="/Inn" class="navbar-link">Inn</a>
+          <a href="/" class="navbar-link">Inn</a>
         </li>
         <li class="navbar-item">
           <a href="/about" class="navbar-link">About</a>
@@ -45,10 +52,14 @@ import burgerIcon from "../assets/burger-menu-icon.svg";
         </li>
         <li class="navbar-item">
           <a href="/" class="navbar-logo">
-            <img
-              src="/fire_hammer_logo.png"
+            <Image
+              src={fireHammerLogo}
               alt="MTGA Artisan Logo"
+              width={72}
+              height={72}
               class="h-18 w-18"
+              loading="eager"
+              fetchpriority="high"
             />
           </a>
         </li>
@@ -67,13 +78,22 @@ import burgerIcon from "../assets/burger-menu-icon.svg";
       </div>
     </div>
     <!-- Mobile Overlay Menu (hidden by default) -->
-    <div class="mobile-menu-overlay hidden md:hidden" id="mobile-menu">
+    <div
+      class="mobile-menu-overlay hidden md:hidden text-center w-[300px] h-[500px] bg-background/80 backdrop-blur-md rounded-xl absolute top-0 left-0 z-90 flex items-center justify-center"
+      id="mobile-menu"
+    >
+      <button
+        class="absolute top-6 right-6 bg-transparent"
+        id="mobile-menu-close"
+      >
+        <img src={closeIcon.src} alt="Close Menu" />
+      </button>
       <ul>
         <li class="navbar-item">
-          <a href="/Inn" class="navbar-link">Inn</a>
+          <a href="/" class="navbar-link">Inn</a>
         </li>
         <li class="navbar-item">
-          <a href="/About" class="navbar-link">About</a>
+          <a href="/about" class="navbar-link">About</a>
         </li>
         <li class="navbar-item">
           <a href="/play-artisan" class="navbar-link">Play Artisan</a>
@@ -96,9 +116,27 @@ import burgerIcon from "../assets/burger-menu-icon.svg";
   document.addEventListener("DOMContentLoaded", () => {
     const menuButton = document.getElementById("mobile-menu-button");
     const mobileMenu = document.getElementById("mobile-menu");
+    const closeButton = document.getElementById("mobile-menu-close");
 
     menuButton?.addEventListener("click", () => {
       mobileMenu?.classList.toggle("hidden");
     });
+
+    closeButton?.addEventListener("click", () => {
+      mobileMenu?.classList.add("hidden");
+    });
   });
 </script>
+
+<style>
+  #mobile-menu {
+    box-shadow: 0 5px 15px 2px var(--color-primary);
+  }
+
+  @media (max-width: 767px) {
+    .navbar-item {
+      margin-bottom: 1.5rem;
+      font-size: 1.5rem;
+    }
+  }
+</style>

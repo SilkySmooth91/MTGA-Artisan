@@ -1,0 +1,24 @@
+---
+const { class: className = "", ...rest } = Astro.props;
+---
+
+<div
+  class={`card w-[622px] h-[397px] flex flex-col items-center justify-center bg-background rounded-[3rem] ${className}`}
+  {...rest}
+>
+  <div class="card-icon">
+    <slot name="icon" />
+  </div>
+  <h3 class="card-title">
+    <slot name="title" />
+  </h3>
+  <div class="card-body">
+    <slot name="body" />
+  </div>
+</div>
+
+<style>
+  .card {
+    box-shadow: 0 5px 10px -2px var(--color-primary);
+  }
+</style>

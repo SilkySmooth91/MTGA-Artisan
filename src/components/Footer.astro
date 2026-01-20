@@ -1,4 +1,5 @@
 ---
+import { Image } from "astro:assets";
 import footerImg from "../assets/hero_logo.webp";
 ---
 
@@ -44,12 +45,12 @@ import footerImg from "../assets/hero_logo.webp";
     id="mid-col"
     class="order-1 flex items-center justify-center md:order-none"
   >
-    <img
-      src={footerImg.src}
+    <Image
+      src={footerImg}
       alt="Footer Logo"
       class="aspect-[256/144]"
-      width="256"
-      height="144"
+      width={256}
+      height={144}
     />
   </div>
   <div

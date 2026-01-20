@@ -1,4 +1,5 @@
 ---
+import { Image } from "astro:assets";
 import heroLogo from "../assets/hero_logo.webp";
 import MainButton from "./MainButton.astro";
 ---
@@ -8,12 +9,14 @@ import MainButton from "./MainButton.astro";
   id="hero-container"
 >
   <div class="w-full max-w-[598px] md:max-w-[733px] shrink-0" id="hero-logo">
-    <img
-      src={heroLogo.src}
+    <Image
+      src={heroLogo}
       alt="MTGA Artisan Logo"
       class="w-full h-auto"
-      width="733"
-      height="430"
+      width={733}
+      height={430}
+      loading="eager"
+      fetchpriority="high"
     />
   </div>
   <div class="flex flex-col items-center justify-center">
