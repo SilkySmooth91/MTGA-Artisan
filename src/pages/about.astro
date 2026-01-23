@@ -4,7 +4,7 @@ import Footer from "../components/Footer.astro";
 import Layout from "../layouts/Layout.astro";
 import { Image } from "astro:assets";
 import aboutPageHero from "../assets/hero_logo.webp";
-import AboutCard from "../components/AboutCard.astro";
+import AboutCardSection from "../components/AboutCardSection.astro";
 ---
 
 <Layout>
@@ -19,17 +19,6 @@ import AboutCard from "../components/AboutCard.astro";
       fetchpriority="high"
     />
   </div>
-  <section
-    id="card-section"
-    class="card-section w-full max-w-screen-2xl mx-auto mb-20"
-  >
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-y-28 justify-items-center">
-      <AboutCard />
-      <AboutCard />
-      <AboutCard />
-      <AboutCard />
-      <AboutCard class="md:col-span-2 md:justify-self-center" />
-    </div>
-  </section>
+  <AboutCardSection />
   <Footer />
 </Layout>
