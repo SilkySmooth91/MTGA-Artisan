@@ -1,0 +1,89 @@
+---
+
+---
+
+<section class="max-w-screen-2xl mx-auto px-6" data-view="main">
+  <div class="flex md:hidden gap-4 mb-8">
+    <button type="button" class="tab-button" data-view-btn="main">
+      Articles
+    </button>
+    <button type="button" class="tab-button" data-view-btn="aside">
+      Topics
+    </button>
+  </div>
+  <div class="md:grid md:grid-cols-5 md:gap-8">
+    <div class="md:col-span-4" data-panel="main">
+      <slot name="main" />
+    </div>
+    <aside
+      class="md:col-span-1 md:flex md:flex-col md:gap-4"
+      data-panel="aside"
+    >
+      <slot name="logo" />
+      <slot name="topic-list" />
+    </aside>
+  </div>
+</section>
+
+<style>
+  .tab-button {
+    border: 1px solid var(--color-primary);
+    border-radius: 9999px;
+    padding: 0.5rem 1.25rem;
+    color: var(--color-text);
+    background: transparent;
+    transition: all 0.2s ease-in-out;
+  }
+
+  .tab-button.is-active {
+    background: var(--color-primary);
+    color: #fff;
+    box-shadow: 0 0 12px rgba(255, 80, 80, 0.35);
+  }
+
+  section[data-view="main"] [data-panel="aside"] {
+    display: none;
+  }
+
+  section[data-view="aside"] [data-panel="main"] {
+    display: none;
+  }
+
+  @media (min-width: 768px) {
+    section [data-panel="main"],
+    section [data-panel="aside"] {
+      display: block;
+    }
+
+    .tab-button {
+      display: none;
+    }
+  }
+</style>
+
+<script>
+  const root = document.currentScript?.closest("section");
+  if (!(root instanceof HTMLElement)) return;
+
+  const buttons = Array.from(root.querySelectorAll("[data-view-btn]"));
+
+  let currentView = root.dataset.view || "main";
+  const setView = () => {
+    root.dataset.view = currentView;
+    buttons.forEach((btn) => {
+      if (btn instanceof HTMLButtonElement) {
+        btn.classList.toggle("is-active", btn.dataset.viewBtn === currentView);
+      }
+    });
+  };
+
+  setView();
+  buttons.forEach((btn) => {
+    if (btn instanceof HTMLButtonElement) {
+      btn.addEventListener(
+        "click",
+        () => (currentView = btn.dataset.viewBtn || "main"),
+      );
+    }
+  });
+</script>

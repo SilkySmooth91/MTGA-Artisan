@@ -13,12 +13,18 @@ import mission2 from "../assets/icons/mission-2_icon.svg";
   class="card-section w-full max-w-screen-2xl mx-auto mb-20"
 >
   <div class="grid grid-cols-1 md:grid-cols-2 gap-y-36 justify-items-center">
-    <AboutCard class="relative flex flex-col justify-center gap-6">
+    <AboutCard class="group relative flex flex-col justify-center gap-6">
       <div
         slot="icon"
         class="absolute -top-15 right-1/2 translate-x-1/2 flex flex-col justify-center items-center gap-4"
       >
-        <Image src={community} alt="Community Icon" width={126} height={126} />
+        <Image
+          src={community}
+          alt="Community Icon"
+          width={126}
+          height={126}
+          class="group-hover:scale-110 transition-transform ease-in-out"
+        />
         <h3 slot="title" class="font-heading text-2xl text-primary/80">
           Community
         </h3>
@@ -33,12 +39,18 @@ import mission2 from "../assets/icons/mission-2_icon.svg";
         of common and uncommon cards.
       </p>
     </AboutCard>
-    <AboutCard class="relative flex flex-col justify-center gap-6">
+    <AboutCard class="group relative flex flex-col justify-center gap-6">
       <div
         slot="icon"
         class="absolute -top-15 right-1/2 translate-x-1/2 flex flex-col justify-center items-center gap-4"
       >
-        <Image src={birth} alt="Community Icon" width={126} height={126} />
+        <Image
+          src={birth}
+          alt="Community Icon"
+          width={126}
+          height={126}
+          class="group-hover:scale-110 transition-transform ease-in-out"
+        />
         <h3 slot="title" class="font-heading text-2xl text-primary/80">
           Birth
         </h3>
@@ -47,15 +59,22 @@ import mission2 from "../assets/icons/mission-2_icon.svg";
         slot="body"
         class="font-body text-xl text-text text-center px-12 leading-normal"
       >
-        The community was founded on 25 May 2024 on Discord.
+        The community was founded on 25 May 2024 on Discord and has grown
+        steadily since then, expanding the formats it supports over time.
       </p>
     </AboutCard>
-    <AboutCard class="relative flex flex-col justify-center gap-6">
+    <AboutCard class="group relative flex flex-col justify-center gap-6">
       <div
         slot="icon"
         class="absolute -top-15 right-1/2 translate-x-1/2 flex flex-col justify-center items-center gap-4"
       >
-        <Image src={compass} alt="Community Icon" width={126} height={126} />
+        <Image
+          src={compass}
+          alt="Community Icon"
+          width={126}
+          height={126}
+          class="group-hover:scale-110 transition-transform ease-in-out"
+        />
         <h3 slot="title" class="font-heading text-2xl text-primary/80">
           Values
         </h3>
@@ -75,34 +94,58 @@ import mission2 from "../assets/icons/mission-2_icon.svg";
         <li>• Passion – genuine love for Magic and the Artisan format</li>
       </ul>
     </AboutCard>
-    <AboutCard class="relative flex flex-col justify-center gap-6">
+    <AboutCard class="group relative flex flex-col justify-center gap-6">
       <div
         slot="icon"
         class="absolute -top-15 right-1/2 translate-x-1/2 flex flex-col justify-center items-center gap-4"
       >
-        <Image src={mission} alt="Community Icon" width={126} height={126} />
-        <h3 slot="title" class="font-heading text-2xl text-primary/80"></h3>
+        <Image
+          src={mission}
+          alt="Community Icon"
+          width={126}
+          height={126}
+          class="group-hover:scale-110 transition-transform ease-in-out"
+        />
+        <h3 slot="title" class="font-heading text-2xl text-primary/80">
+          Mission
+        </h3>
       </div>
       <p
         slot="body"
         class="font-body text-xl text-text text-center px-12 leading-normal"
       >
+        To promote and grow the Artisan format on an international level by
+        creating an inclusive and collaborative environment where players can
+        improve their skills, compete in a healthy way, and share their passion
+        for Magic.
       </p>
     </AboutCard>
     <AboutCard
-      class="md:col-span-2 md:justify-self-center relative flex flex-col justify-center gap-6"
+      class="group md:col-span-2 md:justify-self-center relative flex flex-col justify-center gap-6"
     >
       <div
         slot="icon"
         class="absolute -top-15 right-1/2 translate-x-1/2 flex flex-col justify-center items-center gap-4"
       >
-        <Image src={mission2} alt="Community Icon" width={126} height={126} />
-        <h3 slot="title" class="font-heading text-2xl text-primary/80"></h3>
+        <Image
+          src={mission2}
+          alt="Community Icon"
+          width={126}
+          height={126}
+          class="group-hover:scale-110 transition-transform ease-in-out"
+        />
+        <h3 slot="title" class="font-heading text-2xl text-primary/80">
+          Vision
+        </h3>
       </div>
       <p
         slot="body"
         class="font-body text-xl text-text text-center px-12 leading-normal"
       >
+        To become a global reference point for the MTGA Artisan format,
+        recognized for the quality of its community, the organization of its
+        tournaments, and its ability to make Magic more accessible without
+        sacrificing strategic depth.
       </p>
     </AboutCard>
   </div>
