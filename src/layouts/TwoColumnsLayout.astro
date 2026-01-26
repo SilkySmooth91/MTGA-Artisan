@@ -1,8 +1,17 @@
 ---
-
+import heroLogo from "../assets/hero_logo.webp";
 ---
 
 <section class="max-w-screen-2xl mx-auto px-6" data-view="main">
+  <div class="mt-6 flex justify-center md:justify-end">
+    <img
+      src={heroLogo.src}
+      alt="MTGA Artisan Logo"
+      width={350}
+      height={246}
+      class="w-auto h-[246px]"
+    />
+  </div>
   <div class="flex md:hidden gap-4 mb-8">
     <button type="button" class="tab-button" data-view-btn="main">
       Articles
@@ -19,7 +28,6 @@
       class="md:col-span-1 md:flex md:flex-col md:gap-4"
       data-panel="aside"
     >
-      <slot name="logo" />
       <slot name="topic-list" />
     </aside>
   </div>
@@ -50,9 +58,12 @@
   }
 
   @media (min-width: 768px) {
-    section [data-panel="main"],
-    section [data-panel="aside"] {
+    section[data-view] [data-panel="main"] {
       display: block;
+    }
+
+    section[data-view] [data-panel="aside"] {
+      display: flex;
     }
 
     .tab-button {
@@ -62,28 +73,36 @@
 </style>
 
 <script>
-  const root = document.currentScript?.closest("section");
-  if (!(root instanceof HTMLElement)) return;
+  const initTabs = () => {
+    const section = document.querySelector("section[data-view]");
+    if (!section) return;
 
-  const buttons = Array.from(root.querySelectorAll("[data-view-btn]"));
+    const buttons = section.querySelectorAll("[data-view-btn]");
+    let currentView = section.getAttribute("data-view") || "main";
 
-  let currentView = root.dataset.view || "main";
-  const setView = () => {
-    root.dataset.view = currentView;
+    const setView = () => {
+      section.setAttribute("data-view", currentView);
+      buttons.forEach((btn) => {
+        btn.classList.toggle(
+          "is-active",
+          btn.getAttribute("data-view-btn") === currentView,
+        );
+      });
+    };
+
     buttons.forEach((btn) => {
-      if (btn instanceof HTMLButtonElement) {
-        btn.classList.toggle("is-active", btn.dataset.viewBtn === currentView);
-      }
+      btn.addEventListener("click", () => {
+        currentView = btn.getAttribute("data-view-btn") || "main";
+        setView();
+      });
     });
+
+    setView();
   };
 
-  setView();
-  buttons.forEach((btn) => {
-    if (btn instanceof HTMLButtonElement) {
-      btn.addEventListener(
-        "click",
-        () => (currentView = btn.dataset.viewBtn || "main"),
-      );
-    }
-  });
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initTabs);
+  } else {
+    initTabs();
+  }
 </script>

@@ -1,10 +1,42 @@
 ---
+import ArticleList from "../components/ArticleList.astro";
 import Footer from "../components/Footer.astro";
 import Navbar from "../components/Navbar.astro";
+import TopicsList from "../components/TopicsList";
 import Layout from "../layouts/Layout.astro";
+import TwoColumnsLayout from "../layouts/TwoColumnsLayout.astro";
+import art1 from "../assets/art1.webp";
+
+const topics = ["Draft", "Deckbuilding", "Metagame", "Events", "Patch Notes"];
+
+const articles = [
+  {
+    title: "Sample Article 1",
+    excerpt:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    imageUrl: art1.src,
+    href: "/articles/sample-article-1",
+  },
+  {
+    title: "Sample Article 2",
+    excerpt:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    imageUrl: art1.src,
+    href: "/articles/sample-article-2",
+  },
+];
 ---
 
 <Layout>
   <Navbar />
+  <TwoColumnsLayout>
+    <ArticleList slot="main" articles={articles} />
+    <TopicsList
+      slot="topic-list"
+      topics={topics}
+      activeTopic={topics[0]}
+      client:load
+    />
+  </TwoColumnsLayout>
   <Footer />
 </Layout>
