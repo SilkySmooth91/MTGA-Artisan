@@ -16,9 +16,7 @@ export default function TopicsList({
   const currentActive = onTopicChange ? activeTopic : localActive;
   return (
     <div className="topics">
-      <h3 className="topics_title font-body font-semibold text-3xl mb-4">Topics</h3>
-
-      <ul className="topics_list flex flex-col gap-4">
+      <ul className="topics_list flex flex-col justify-center items-center md:items-start gap-4 mr-20">
         {topics.map((topic) => {
           const isActive = topic === currentActive;
 

@@ -17,23 +17,25 @@ const {
 ---
 
 <article
-  class="card w-full max-w-[455px] md:max-w-[860px] aspect-[455/297] md:aspect-[860/441] rounded-2xl"
+  class="card w-full max-w-[455px] md:max-w-[860px] aspect-[455/297] md:aspect-[860/441] rounded-[32px]"
 >
   <div
-    class="group relative flex items-end justify-center w-full h-full rounded-2xl overflow-hidden shadow-lg"
+    class="group relative flex items-end justify-center w-full h-full rounded-[32px] overflow-hidden shadow-lg"
     style={`background-image: url('${imageUrl}'); background-size: cover; background-position: center;`}
     aria-label={title}
   >
     <div
-      class="w-11/12 mx-auto flex items-center justify-between bg-background rounded-3xl mb-8"
+      class="w-11/12 mx-auto flex items-center justify-between bg-background rounded-[40px] mb-5 md:mb-8"
     >
       <div
-        class="relative z-10 p-6 flex flex-col gap-3 text-text flex-1 min-w-0"
+        class="relative z-10 p-6 flex flex-col gap-2 md:gap-3 text-text flex-1 min-w-0 h-[118px] md:h-[158px]"
       >
-        <h3 class="text-xl font-heading font-medium leading-snug mb-3">
+        <h3
+          class="text-sm md:text-xl font-heading font-medium leading-snug md:mb-3"
+        >
           {title}
         </h3>
-        <p class="text-base font-body leading-normal text-white/90">
+        <p class="text-xs md:text-base font-body leading-normal text-white/90">
           {excerpt}
         </p>
       </div>

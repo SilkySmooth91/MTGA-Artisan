@@ -6,6 +6,7 @@ import TopicsList from "../components/TopicsList";
 import Layout from "../layouts/Layout.astro";
 import TwoColumnsLayout from "../layouts/TwoColumnsLayout.astro";
 import art1 from "../assets/art1.webp";
+import CallToAction from "../components/CallToAction.astro";
 
 const topics = ["Draft", "Deckbuilding", "Metagame", "Events", "Patch Notes"];
 
@@ -38,5 +39,6 @@ const articles = [
       client:load
     />
   </TwoColumnsLayout>
+  <CallToAction />
   <Footer />
 </Layout>

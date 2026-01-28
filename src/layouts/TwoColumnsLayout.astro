@@ -12,11 +12,19 @@ import heroLogo from "../assets/hero_logo.webp";
       class="w-auto h-[246px]"
     />
   </div>
-  <div class="flex md:hidden gap-4 mb-8">
-    <button type="button" class="tab-button" data-view-btn="main">
+  <div class="flex md:hidden gap-0 mb-8 w-full max-w-[455px] mx-auto">
+    <button
+      type="button"
+      class="tab-button w-[108px] bg-background mt-2 px-5 pt-6 rounded-tr-[90px] rounded-tl-2xl text-xl font-semibold"
+      data-view-btn="main"
+    >
       Articles
     </button>
-    <button type="button" class="tab-button" data-view-btn="aside">
+    <button
+      type="button"
+      class="tab-button w-[108px] bg-background mt-2 px-5 pt-6 rounded-tr-[90px] rounded-tl-2xl text-xl font-semibold"
+      data-view-btn="aside"
+    >
       Topics
     </button>
   </div>
@@ -35,18 +43,13 @@ import heroLogo from "../assets/hero_logo.webp";
 
 <style>
   .tab-button {
-    border: 1px solid var(--color-primary);
-    border-radius: 9999px;
-    padding: 0.5rem 1.25rem;
-    color: var(--color-text);
-    background: transparent;
+    box-shadow: -10px 10px 15px -5px rgba(255, 80, 80, 0.35) inset;
     transition: all 0.2s ease-in-out;
   }
 
   .tab-button.is-active {
-    background: var(--color-primary);
     color: #fff;
-    box-shadow: 0 0 12px rgba(255, 80, 80, 0.35);
+    box-shadow: -15px 10px 15px 2px rgba(255, 48, 48, 0.488) inset;
   }
 
   section[data-view="main"] [data-panel="aside"] {

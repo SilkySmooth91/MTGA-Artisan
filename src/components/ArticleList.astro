@@ -11,21 +11,18 @@ interface ArticleItem {
 const { articles = [] } = Astro.props as { articles?: ArticleItem[] };
 ---
 
-<section class="article-list flex flex-col items-center gap-12 mb-24 px-4">
+<section class="article-list flex flex-col items-center gap-24 md:gap-44 mb-24">
   {
-    Astro.slots.default ? (
-      <slot />
-    ) : articles.length ? (
+    Astro.slots.default ? <slot />
+    : articles.length ?
       <>
         {articles.map((article) => (
           <ArticleCard {...article} />
         ))}
       </>
-    ) : (
-      <>
+    : <>
         <ArticleCard />
         <ArticleCard />
       </>
-    )
   }
 </section>
