@@ -1,0 +1,29 @@
+---
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+import Layout from "../layouts/Layout.astro";
+import playArtisanHero from "../assets/hero_logo.webp";
+import Image from "astro/components/Image.astro";
+import CallToAction from "../components/CallToAction.astro";
+import PlayArtisanSection from "../components/PlayArtisan";
+import FormatsGrid from "../components/FormatsGrid";
+---
+
+<Layout>
+  <Navbar />
+  <div
+    class="w-full max-w-screen-2xl flex items-center justify-end mt-10 mb-14 mx-auto"
+  >
+    <Image
+      src={playArtisanHero}
+      alt="Play Artisan Logo"
+      width={350}
+      height={246}
+      loading="eager"
+      fetchpriority="high"
+    />
+  </div>
+  <PlayArtisanSection client:load />
+  <CallToAction />
+  <Footer />
+</Layout>

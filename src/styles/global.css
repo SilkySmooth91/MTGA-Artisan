@@ -39,3 +39,12 @@ a {
 a:hover {
     color: var(--color-text);
 }
+
+.big-button {
+    box-shadow: 0 5px 10px -2px var(--color-primary);
+    transition: all 0.2s ease-in-out;
+}
+
+.big-button:hover {
+    box-shadow: 0 0 10px var(--color-primary);
+}
