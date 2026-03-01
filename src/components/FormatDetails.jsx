@@ -6,10 +6,11 @@ export default function FormatDetails({ formatId, className = "" }) {
 
     const selectedFormat = formatsConfig.find((format) => format.id === formatId)
     const details = selectedFormat ? formatDetails[selectedFormat.dataKey] : null
+    const sectionClassName = `px-10 ${className}`.trim()
 
     if (!details) {
         return (
-            <section className={className}>
+            <section className={sectionClassName}>
                 <h2 className="font-heading text-3xl text-white">{selectedFormat?.label ?? formatId}</h2>
                 <p className="font-body text-base text-white mt-4">Descrizione in arrivo.</p>
             </section>
@@ -17,7 +18,7 @@ export default function FormatDetails({ formatId, className = "" }) {
     }
 
     return (
-        <section className={className}>
+        <section className={sectionClassName}>
             <h2 className="font-heading text-3xl text-white">{details.title}</h2>
 
             <div className="mt-6 space-y-4">
@@ -43,7 +44,7 @@ export default function FormatDetails({ formatId, className = "" }) {
                         ))}
 
                         {section.bullets?.length > 0 && (
-                            <ul className="list-disc pl-6 space-y-1 font-body text-base text-white">
+                            <ul className="list-disc list-inside text-center md:list-outside md:pl-6 md:text-left space-y-1 font-body text-base text-white">
                                 {section.bullets.map((bullet, bulletIndex) => (
                                     <li key={`b-${sectionIndex}-${bulletIndex}`}>{bullet}</li>
                                 ))}
