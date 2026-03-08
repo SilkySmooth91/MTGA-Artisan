@@ -19,7 +19,7 @@ export default function FormatDetails({ formatId, className = "" }) {
 
     return (
         <section className={sectionClassName}>
-            <h2 className="font-heading text-3xl text-white">{details.title}</h2>
+            <h1 className="font-heading text-3xl text-white">{details.title}</h1>
 
             <div className="mt-6 space-y-4">
                 {details.intro?.map((paragraph, index) => (
@@ -32,7 +32,7 @@ export default function FormatDetails({ formatId, className = "" }) {
             <div className="mt-8 space-y-8">
                 {details.sections?.map((section, sectionIndex) => (
                     <div key={`section-${sectionIndex}`} className="space-y-3">
-                        {section.title && <h3 className="font-heading text-2xl text-white">{section.title}</h3>}
+                        {section.title && <h2 className="font-heading text-2xl text-white">{section.title}</h2>}
 
                         {section.paragraphs?.map((paragraph, paragraphIndex) => (
                             <p

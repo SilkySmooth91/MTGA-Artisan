@@ -39,7 +39,7 @@ export const formatsConfig = [
   {
     id: "Realms",
     label: "Realms",
-    dataKey: "Realms",
+    dataKey: "Artisan Realms",
     icon: realmsIcon,
   },
 ]

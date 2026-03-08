@@ -175,4 +175,57 @@ export const formatDetails = {
       }
     ]
   },
+
+  "Artisan Realms": {
+    title: "Artisan Realms – Official Format Description",
+    intro: [
+      "Artisan Realms is a rotating, set-defined format built around curated Standard-era environments",
+      "Each Artisan Realms season focuses on a specific group of sets, creating a contained and thematic competitive experience. Only common and uncommon cards from the designated Realms sets are legal.",
+      "By limiting both rarity and card pool scope, Artisan Realms emphasizes metagame exploration within a defined environment, encouraging adaptation and creative deckbuilding inside a seasonal framework."
+    ],
+    sections: [
+      {
+        title: "Why Play Artisan Realms?",
+        level: "h2",
+        paragraphs: [
+          "Artisan Realms is designed for players who enjoy focused, evolving environments and seasonal competitive structures.",
+          "The format rewards:"
+        ],
+        bullets: [
+          "Adaptation within a defined card pool",
+          "Exploration of underplayed synergies",
+          "Creative deckbuilding in contained metas",
+          "Competitive play inside curated environments"
+        ],
+        paragraphsAfter: [
+          "Each season provides a fresh strategic challenge while maintaining the core Artisan philosophy."
+        ]
+      },
+      {
+        title: "Rules",
+        level: "h2",
+        paragraphs: [
+          "Artisan Realms legality is determined by the sets designated for the current season.",
+          "Deck construction requirements:"
+        ],
+        bullets: [
+          "Minimum 60-card deck",
+          "Set the deck type to Traditional Timeless when building for Artisan Realms",
+          "Use Timeless Tournament Match when challenging other players",
+          "Only common and uncommon cards from the current Realms-legal sets may be included",
+          "All seasonal legality updates are published before the start of each Realms cycle"
+        ],
+        paragraphsAfter: [
+          "The format rotates according to seasonal announcements rather than Standard rotation."
+        ]
+      },
+      {
+        title: "Banlist",
+        level: "h3",
+        paragraphs: [
+          "It depends on the realm played and will be communicated at each event."
+        ]
+      }
+    ]
+  }
 };

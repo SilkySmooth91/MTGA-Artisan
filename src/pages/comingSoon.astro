@@ -1,0 +1,35 @@
+---
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+import CallToAction from "../components/CallToAction.astro";
+import Layout from "../layouts/Layout.astro";
+import { Image } from "astro:assets";
+import comingSoonHero from "../assets/hero_logo.webp";
+---
+
+<Layout>
+  <Navbar />
+  <div
+    class="w-full max-w-screen-2xl mx-auto px-10 flex items-center justify-center my-24"
+  >
+    <Image
+      src={comingSoonHero}
+      alt="About MTGA Artisan"
+      width={720}
+      height={553}
+      loading="eager"
+      fetchpriority="high"
+    />
+  </div>
+  <section class="w-full max-w-screen-2xl mx-auto mt-20">
+    <div class="px-20">
+      <p class="font-heading text-2xl font-semibold text-text text-center">
+        This section of the website is still under development. Follow us on
+        Discord to stay up to date with the development of the MTGA Artisan
+        website!
+      </p>
+    </div>
+  </section>
+  <CallToAction />
+  <Footer />
+</Layout>
