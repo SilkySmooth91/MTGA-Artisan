@@ -1,46 +1,21 @@
-# Astro Starter Kit: Basics
+# MTGA Artisan
 
-```sh
-npm create astro@latest -- --template basics
-```
+Sito ufficiale MTGA Artisan realizzato con Astro.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Comandi principali
 
-## 🚀 Project Structure
+- `npm install` — installa le dipendenze
+- `npm run dev` — avvia il server locale
+- `npm run build` — genera la build di produzione
+- `npm run preview` — anteprima locale della build
 
-Inside of your Astro project, you'll see the following folders and files:
+## Deploy (Vercel)
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
-```
+- Branch di sviluppo: `Development` → deploy `Preview`
+- Branch live: `master` (o `main`, se rinominato) → deploy `Production`
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+## Deploy Test
 
-## 🧞 Commands
+Questa modifica al README è stata fatta per testare la pipeline Git → Vercel.
 
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Data test: 2026-03-08
