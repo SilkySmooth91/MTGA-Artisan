@@ -9,25 +9,36 @@ import fireHammerLogo from "../assets/fire_hammer_logo.webp";
 <div class="w-full md:shadow md:shadow-black/75">
   <nav class="navbar w-full max-w-screen-2xl mx-auto px-10 py-9">
     <!-- Mobile Layout -->
-    <div class="md:hidden grid grid-cols-[1fr_auto_1fr] items-center">
+    <div class="md:hidden grid grid-cols-3 items-center">
       <!-- Burger Menu Button -->
-      <div class="w-full flex justify-start">
-        <button class="burger-menu z-50" id="mobile-menu-button">
-          <img src={burgerIcon.src} alt="Menu" class="w-10 h-10" />
+      <div class="w-full flex justify-start items-center">
+        <button
+          class="burger-menu z-50 w-10 h-10 flex items-center justify-center"
+          id="mobile-menu-button"
+        >
+          <img src={burgerIcon.src} alt="Menu" class="w-7 h-7" />
         </button>
       </div>
       <!-- Logo mobile -->
-      <a href="/" class="navbar-logo justify-self-center">
+      <a
+        href="/"
+        class="navbar-logo justify-self-center flex items-center justify-center"
+      >
         <Image
           src={fireHammerLogo}
           alt="MTGA Artisan Logo"
           width={72}
           height={72}
-          class="h-18 w-18"
+          class="h-14 w-14"
           loading="eager"
           fetchpriority="high"
         />
       </a>
+      <div class="w-full flex justify-end items-center">
+        <MainButton href="#" class="py-2! px-4! text-sm! leading-none"
+          >Community</MainButton
+        >
+      </div>
     </div>
 
     <!-- Desktop Layout -->
@@ -70,21 +81,21 @@ import fireHammerLogo from "../assets/fire_hammer_logo.webp";
         </li>
       </ul>
       <div class="col-start-3 justify-self-end">
-        <MainButton href="#" class="md:!mr-5">Community</MainButton>
+        <MainButton href="#" class="md:mr-5!">Community</MainButton>
       </div>
     </div>
     <!-- Mobile Overlay Menu (hidden by default) -->
     <div
-      class="mobile-menu-overlay hidden md:hidden text-center w-[300px] h-[500px] bg-background/80 backdrop-blur-md rounded-xl absolute top-0 left-0 z-90 flex items-center justify-center"
+      class="mobile-menu-overlay invisible pointer-events-none md:hidden text-center w-45.25 h-82.25 bg-background/80 backdrop-blur-md rounded-xl absolute top-0 left-0 z-90 flex items-center justify-center opacity-0 scale-95 transition-all duration-200 ease-out"
       id="mobile-menu"
     >
       <button
-        class="absolute top-6 right-6 bg-transparent"
+        class="absolute top-4 right-4 bg-transparent"
         id="mobile-menu-close"
       >
-        <img src={closeIcon.src} alt="Close Menu" />
+        <img src={closeIcon.src} alt="Close Menu" class="w-5 h-5" />
       </button>
-      <ul>
+      <ul class="mobile-menu-list w-full px-5 pt-8 pb-4">
         <li class="navbar-item">
           <a href="/" class="navbar-link">Inn</a>
         </li>
@@ -103,9 +114,6 @@ import fireHammerLogo from "../assets/fire_hammer_logo.webp";
         <li class="navbar-item">
           <a href="/comingSoon" class="navbar-link">Rankings</a>
         </li>
-        <li class="navbar-item">
-          <MainButton href="#">Community</MainButton>
-        </li>
       </ul>
     </div>
   </nav>
@@ -116,13 +124,51 @@ import fireHammerLogo from "../assets/fire_hammer_logo.webp";
     const menuButton = document.getElementById("mobile-menu-button");
     const mobileMenu = document.getElementById("mobile-menu");
     const closeButton = document.getElementById("mobile-menu-close");
+    const enterClasses = ["opacity-100", "scale-100"];
+    const leaveClasses = [
+      "opacity-0",
+      "scale-95",
+      "invisible",
+      "pointer-events-none",
+    ];
+
+    const openMenu = () => {
+      if (!mobileMenu) {
+        return;
+      }
+
+      mobileMenu.classList.remove(
+        "invisible",
+        "pointer-events-none",
+        "opacity-0",
+        "scale-95",
+      );
+      // Run on the next frame so transitions animate from the initial state.
+      requestAnimationFrame(() => {
+        mobileMenu.classList.add(...enterClasses);
+      });
+    };
+
+    const closeMenu = () => {
+      if (!mobileMenu || mobileMenu.classList.contains("invisible")) {
+        return;
+      }
+
+      mobileMenu.classList.remove(...enterClasses);
+      mobileMenu.classList.add(...leaveClasses);
+    };
 
     menuButton?.addEventListener("click", () => {
-      mobileMenu?.classList.toggle("hidden");
+      if (mobileMenu?.classList.contains("invisible")) {
+        openMenu();
+        return;
+      }
+
+      closeMenu();
     });
 
     closeButton?.addEventListener("click", () => {
-      mobileMenu?.classList.add("hidden");
+      closeMenu();
     });
   });
 </script>
@@ -133,9 +179,14 @@ import fireHammerLogo from "../assets/fire_hammer_logo.webp";
   }
 
   @media (max-width: 767px) {
-    .navbar-item {
-      margin-bottom: 1.5rem;
-      font-size: 1.5rem;
+    .mobile-menu-list .navbar-item {
+      margin-bottom: 0.65rem;
+      font-size: 1rem;
+      line-height: 1.2;
+    }
+
+    .mobile-menu-list .navbar-item:last-child {
+      margin-bottom: 0;
     }
   }
 </style>

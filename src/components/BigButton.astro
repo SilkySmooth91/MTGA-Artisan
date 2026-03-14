@@ -14,7 +14,7 @@ const isLink = typeof href === "string" && href.length > 0;
   isLink ?
     <a
       href={href}
-      class={`big-button text-primary font-body w-[305px] h-[305px] p-4 bg-background rounded-full font-light text-xs md:text-base cursor-pointer flex flex-col items-center justify-center gap-3 text-center ${className ?? ""}`}
+      class={`big-button text-primary font-body w-[187px] h-[187px] md:w-[305px] md:h-[305px] p-4 bg-background rounded-full font-light text-xs md:text-base cursor-pointer flex flex-col items-center justify-center gap-3 text-center ${className ?? ""}`}
       aria-disabled={disabled ? "true" : undefined}
       {...rest}
     >
