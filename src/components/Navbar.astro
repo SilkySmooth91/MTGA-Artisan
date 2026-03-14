@@ -29,13 +29,13 @@ import fireHammerLogo from "../assets/fire_hammer_logo.webp";
           alt="MTGA Artisan Logo"
           width={72}
           height={72}
-          class="h-14 w-14"
+          class="h-10 w-10 mr-10"
           loading="eager"
           fetchpriority="high"
         />
       </a>
       <div class="w-full flex justify-end items-center">
-        <MainButton href="#" class="py-2! px-4! text-sm! leading-none"
+        <MainButton href="#" class="py-3! px-4! text-xs! leading-none"
           >Community</MainButton
         >
       </div>
@@ -81,7 +81,9 @@ import fireHammerLogo from "../assets/fire_hammer_logo.webp";
         </li>
       </ul>
       <div class="col-start-3 justify-self-end">
-        <MainButton href="#" class="md:mr-5!">Community</MainButton>
+        <MainButton href="#" class="md:mr-5! text-xs! md:text-base"
+          >Community</MainButton
+        >
       </div>
     </div>
     <!-- Mobile Overlay Menu (hidden by default) -->
@@ -103,7 +105,7 @@ import fireHammerLogo from "../assets/fire_hammer_logo.webp";
           <a href="/about" class="navbar-link">About</a>
         </li>
         <li class="navbar-item">
-          <a href="/play-artisan" class="navbar-link">Play Artisan</a>
+          <a href="/playArtisan" class="navbar-link">Play Artisan</a>
         </li>
         <li class="navbar-item">
           <a href="/news" class="navbar-link">News</a>
@@ -180,7 +182,7 @@ import fireHammerLogo from "../assets/fire_hammer_logo.webp";
 
   @media (max-width: 767px) {
     .mobile-menu-list .navbar-item {
-      margin-bottom: 0.65rem;
+      margin-bottom: 1.3rem;
       font-size: 1rem;
       line-height: 1.2;
     }
