@@ -1,5 +1,14 @@
 ---
 import NewsCard from "./NewsCard.astro";
+
+interface NewsItem {
+  title?: string;
+  excerpt?: string;
+  imageUrl?: string;
+  href?: string;
+}
+
+const { articles = [] } = Astro.props as { articles?: NewsItem[] };
 ---
 
 <section
@@ -9,15 +18,20 @@ import NewsCard from "./NewsCard.astro";
   <div class="md:justify-self-start justify-self-center">
     <h2 class="text-primary/80 font-heading text-6xl mb-15">News</h2>
   </div>
+
   <div class="w-full md:justify-self-center px-3">
-    <div class="mb-18 w-full">
-      <NewsCard />
-    </div>
-    <div class="mb-18 w-full">
-      <NewsCard />
-    </div>
-    <div class="mb-18 w-full">
-      <NewsCard />
-    </div>
+    {
+      articles.length > 0 ? (
+        articles.map((article) => (
+          <div class="mb-18 w-full">
+            <NewsCard {...article} />
+          </div>
+        ))
+      ) : (
+        <p class="text-text/80 font-body text-base md:text-lg">
+          there are no articles yet
+        </p>
+      )
+    }
   </div>
 </section>

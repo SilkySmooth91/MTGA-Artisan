@@ -1,6 +1,5 @@
 import { supabase, hasSupabaseEnv } from './supabaseClient.js';
 import { mapArticleToCard } from './mapArticleToCard.js';
-import AboutCardSection from '../components/AboutCardSection.astro';
 
 export async function getArticles({limit} = {}) {
     if(!hasSupabaseEnv || !supabase) {

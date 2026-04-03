@@ -6,13 +6,16 @@ import Hero from "../components/Hero.astro";
 import Navbar from "../components/Navbar.astro";
 import NewsSection from "../components/NewsSection.astro";
 import Layout from "../layouts/Layout.astro";
+import { getArticles } from "../lib/articles.js";
+
+const homeNews = await getArticles({ limit: 3 });
 ---
 
 <Layout>
   <Navbar />
   <Hero />
   <BigButtonsSection />
-  <NewsSection />
+  <NewsSection articles={homeNews} />
   <CallToAction />
   <Footer />
 </Layout>

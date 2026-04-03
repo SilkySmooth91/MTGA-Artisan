@@ -5,37 +5,54 @@ import Navbar from "../components/Navbar.astro";
 import TopicsList from "../components/TopicsList";
 import Layout from "../layouts/Layout.astro";
 import TwoColumnsLayout from "../layouts/TwoColumnsLayout.astro";
-import art1 from "../assets/art1.webp";
 import CallToAction from "../components/CallToAction.astro";
+import { getArticles } from "../lib/articles.js";
 
-const topics = ["Draft", "Deckbuilding", "Metagame", "Events", "Patch Notes"];
+const normalize = (value = "") => String(value).trim().toLowerCase();
 
-const articles = [
-  {
-    title: "Sample Article 1",
-    excerpt:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    imageUrl: art1.src,
-    href: "/articles/sample-article-1",
-  },
-  {
-    title: "Sample Article 2",
-    excerpt:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    imageUrl: art1.src,
-    href: "/articles/sample-article-2",
-  },
+const allArticles = await getArticles();
+const selectedCategory = Astro.url.searchParams.get("category")?.trim() ?? "";
+
+const categoriesFromDb = [
+  ...new Set(
+    allArticles
+      .map((article) => article.category)
+      .filter(Boolean)
+      .map((category) => category.trim()),
+  ),
 ];
+
+const fallbackTopics = [
+  "Draft",
+  "Deckbuilding",
+  "Metagame",
+  "Events",
+  "Patch Notes",
+];
+const topics = categoriesFromDb.length ? categoriesFromDb : fallbackTopics;
+
+const activeTopic =
+  topics.find((topic) => normalize(topic) === normalize(selectedCategory)) ||
+  topics[0] ||
+  "";
+
+const filteredArticles = selectedCategory
+  ? allArticles.filter(
+      (article) => normalize(article.category) === normalize(selectedCategory),
+    )
+  : allArticles;
 ---
 
 <Layout>
   <Navbar />
   <TwoColumnsLayout>
-    <ArticleList slot="main" articles={articles} />
+    <ArticleList slot="main" articles={filteredArticles} />
     <TopicsList
       slot="topic-list"
       topics={topics}
-      activeTopic={topics[0]}
+      activeTopic={activeTopic}
+      pagePath="/news"
+      queryKey="category"
       client:load
     />
   </TwoColumnsLayout>
