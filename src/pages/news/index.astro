@@ -1,12 +1,12 @@
 ---
-import ArticleList from "../components/ArticleList.astro";
-import Footer from "../components/Footer.astro";
-import Navbar from "../components/Navbar.astro";
-import TopicsList from "../components/TopicsList";
-import Layout from "../layouts/Layout.astro";
-import TwoColumnsLayout from "../layouts/TwoColumnsLayout.astro";
-import CallToAction from "../components/CallToAction.astro";
-import { getArticles } from "../lib/articles.js";
+import ArticleList from "../../components/ArticleList.astro";
+import Footer from "../../components/Footer.astro";
+import Navbar from "../../components/Navbar.astro";
+import TopicsList from "../../components/TopicsList";
+import Layout from "../../layouts/Layout.astro";
+import TwoColumnsLayout from "../../layouts/TwoColumnsLayout.astro";
+import CallToAction from "../../components/CallToAction.astro";
+import { getArticles } from "../../lib/articles.js";
 
 const normalize = (value = "") => String(value).trim().toLowerCase();
 
