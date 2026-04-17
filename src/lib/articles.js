@@ -1,22 +1,85 @@
 import { supabase, hasSupabaseEnv } from './supabaseClient.js';
 import { mapArticleToCard } from './mapArticleToCard.js';
 
+const QUERY_TIMEOUT_MS = 8000;
+const RETRY_DELAYS_MS = [400, 1200];
+
+function sleep(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+function isRetryableError(error) {
+  if (!error) return false;
+
+  const message = String(error.message || error).toLowerCase();
+  return [
+    'fetch failed',
+    'failed to fetch',
+    'networkerror',
+    'network request failed',
+    'timeout',
+    'timed out',
+    'aborted',
+    'econnreset',
+    'eai_again',
+  ].some((token) => message.includes(token));
+}
+
+async function runQueryWithRetry(queryFactory, contextLabel) {
+  let lastError = null;
+
+  for (let attempt = 0; attempt <= RETRY_DELAYS_MS.length; attempt += 1) {
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), QUERY_TIMEOUT_MS);
+
+    try {
+      const result = await queryFactory(controller.signal);
+      clearTimeout(timeoutId);
+
+      if (result?.error && isRetryableError(result.error) && attempt < RETRY_DELAYS_MS.length) {
+        lastError = result.error;
+        await sleep(RETRY_DELAYS_MS[attempt]);
+        continue;
+      }
+
+      return result;
+    } catch (error) {
+      clearTimeout(timeoutId);
+
+      if (isRetryableError(error) && attempt < RETRY_DELAYS_MS.length) {
+        lastError = error;
+        await sleep(RETRY_DELAYS_MS[attempt]);
+        continue;
+      }
+
+      throw error;
+    }
+  }
+
+  return {
+    data: null,
+    error: lastError ?? new Error(`Unknown ${contextLabel} failure`),
+  };
+}
+
 export async function getArticles({limit} = {}) {
     if(!hasSupabaseEnv || !supabase) {
         return [];
     }
 
-    let query = supabase
-        .from('articles')
-        .select("id, title, excerpt, img, author, category, body, created_at, updated_at")
-        .order('created_at', { ascending: false })
-        
-        
-    if (typeof limit === "number") {
-        query = query.limit(limit);
-    };
+    const { data, error } = await runQueryWithRetry((signal) => {
+        let query = supabase
+            .from('articles')
+            .select("id, title, excerpt, img, author, category, body, created_at, updated_at")
+            .order('created_at', { ascending: false })
+            .abortSignal(signal);
 
-    const { data, error } = await query;
+        if (typeof limit === "number") {
+            query = query.limit(limit);
+        }
+
+        return query;
+    }, 'articles fetch');
 
     if (error) {
         console.error("Error fetching articles:", error.message);
@@ -44,11 +107,14 @@ export async function getArticleBySlug(slug) {
     return null;
   }
 
-  const { data, error } = await supabase
-    .from("articles")
-    .select("id, title, excerpt, img, author, category, body, created_at, updated_at")
-    .eq("id", articleId)
-    .maybeSingle();
+  const { data, error } = await runQueryWithRetry((signal) => (
+    supabase
+      .from("articles")
+      .select("id, title, excerpt, img, author, category, body, created_at, updated_at")
+      .eq("id", articleId)
+      .abortSignal(signal)
+      .maybeSingle()
+  ), 'article detail fetch');
 
   if (error) {
     console.error("Error fetching article detail:", error.message);
