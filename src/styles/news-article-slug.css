@@ -1,0 +1,31 @@
+.article-tab-button {
+  box-shadow: -10px 10px 15px -5px rgba(255, 80, 80, 0.35) inset;
+  transition: all 0.2s ease-in-out;
+}
+
+.article-tab-button.is-active {
+  color: #fff;
+  box-shadow: -15px 10px 15px 2px rgba(255, 48, 48, 0.488) inset;
+}
+
+main[data-article-view="article"] [data-panel="chapters"] {
+  display: none;
+}
+
+main[data-article-view="chapters"] [data-panel="article"] {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  main[data-article-view] [data-panel="article"] {
+    display: block;
+  }
+
+  main[data-article-view] [data-panel="chapters"] {
+    display: block;
+  }
+
+  .article-tab-button {
+    display: none;
+  }
+}

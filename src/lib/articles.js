@@ -1,7 +1,7 @@
 import { supabase, hasSupabaseEnv } from './supabaseClient.js';
 import { mapArticleToCard } from './mapArticleToCard.js';
 
-const QUERY_TIMEOUT_MS = 8000;
+const QUERY_TIMEOUT_MS = 15000;
 const RETRY_DELAYS_MS = [400, 1200];
 
 function sleep(ms) {
@@ -69,10 +69,10 @@ export async function getArticles({limit} = {}) {
 
     const { data, error } = await runQueryWithRetry((signal) => {
         let query = supabase
-            .from('articles')
-            .select("id, title, excerpt, img, author, category, body, created_at, updated_at")
-            .order('created_at', { ascending: false })
-            .abortSignal(signal);
+          .from('articles')
+          .select("id, title, excerpt, img, author, category, created_at")
+          .order('created_at', { ascending: false })
+          .abortSignal(signal);
 
         if (typeof limit === "number") {
             query = query.limit(limit);

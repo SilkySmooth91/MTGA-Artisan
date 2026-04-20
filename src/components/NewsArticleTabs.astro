@@ -1,0 +1,24 @@
+---
+const { articleLabel = "Article", chaptersLabel = "Chapters" } =
+  Astro.props as {
+    articleLabel?: string;
+    chaptersLabel?: string;
+  };
+---
+
+<div class="flex md:hidden gap-0 mb-8 w-full max-w-[455px] mx-auto">
+  <button
+    type="button"
+    class="article-tab-button w-[108px] bg-background mt-2 px-5 pt-6 rounded-tr-[90px] rounded-tl-2xl text-base md:text-xl font-semibold"
+    data-view-btn="article"
+  >
+    {articleLabel}
+  </button>
+  <button
+    type="button"
+    class="article-tab-button w-[108px] bg-background mt-2 px-5 pt-6 rounded-tr-[90px] rounded-tl-2xl text-base md:text-xl font-semibold"
+    data-view-btn="chapters"
+  >
+    {chaptersLabel}
+  </button>
+</div>
