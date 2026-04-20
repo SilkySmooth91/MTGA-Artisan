@@ -3,6 +3,7 @@ import Layout from "../../layouts/Layout.astro";
 import Navbar from "../../components/Navbar.astro";
 import Footer from "../../components/Footer.astro";
 import CallToAction from "../../components/CallToAction.astro";
+import NewsArticleContent from "../../components/NewsArticleContent.astro";
 import { getArticleBySlug, getArticles } from "../../lib/articles.js";
 import heroLogo from "../../assets/hero_logo.webp";
 
@@ -76,103 +77,67 @@ const formattedPublishedAt = article?.created_at
 <Layout>
   <Navbar />
 
-  <main class="max-w-7xl mx-auto px-6 mt-20 mb-20 text-text">
+  <main
+    class="max-w-7xl mx-auto px-6 mt-6 md:mt-20 mb-20 text-text"
+    data-article-view="article"
+  >
     <div
       class="md:grid md:grid-cols-[minmax(0,1fr)_300px] md:gap-2 md:items-start"
     >
-      <div class="flex justify-end mb-8 md:mb-10 md:col-start-2 md:row-start-1">
-        <img src={heroLogo.src} alt="MTGA Artisan Logo" class="w-auto h-auto" />
+      <div
+        class="flex justify-center md:justify-end mb-8 md:mb-10 md:col-start-2 md:row-start-1"
+      >
+        <img
+          src={heroLogo.src}
+          alt="MTGA Artisan Logo"
+          width={350}
+          height={246}
+          class="w-auto h-auto"
+        />
       </div>
 
-      <article class="md:col-start-1 md:row-start-2">
-        {
-          article.img ? (
-            <div class="relative mb-2">
-              <img
-                src={article.img}
-                alt={article.title}
-                class="w-full rounded-4xl object-cover min-h-[280px] md:min-h-[420px]"
-              />
-              <div class="absolute inset-0 rounded-4xl bg-gradient-to-t from-black/90 via-black/45 to-transparent" />
-              <div class="absolute bottom-5 left-20 right-20 p-6 md:p-10 bg-background md:bg-transparent rounded-4xl">
-                <h1 class="font-heading text-xl mb-3">{article.title}</h1>
-                <h2 class="font-body text-xl text-white/90">
-                  {article.excerpt}
-                </h2>
-              </div>
-            </div>
-          ) : (
-            <div class="mb-2">
-              <h1 class="font-heading text-xl mb-3">{article.title}</h1>
-              <h2 class="font-body text-xl text-white/90">{article.excerpt}</h2>
-            </div>
-          )
-        }
+      <div class="flex md:hidden gap-0 mb-8 w-full max-w-[455px] mx-auto">
+        <button
+          type="button"
+          class="article-tab-button w-[108px] bg-background mt-2 px-5 pt-6 rounded-tr-[90px] rounded-tl-2xl text-base md:text-xl font-semibold"
+          data-view-btn="article"
+        >
+          Article
+        </button>
+        <button
+          type="button"
+          class="article-tab-button w-[108px] bg-background mt-2 px-5 pt-6 rounded-tr-[90px] rounded-tl-2xl text-base md:text-xl font-semibold"
+          data-view-btn="chapters"
+        >
+          Chapters
+        </button>
+      </div>
 
-        <p class="text-xs uppercase tracking-wide text-text/70 mb-10 md:ml-20">
-          {article.category} • {article.author}
-          {formattedPublishedAt && ` • ${formattedPublishedAt}`}
-        </p>
+      <NewsArticleContent
+        article={article}
+        formattedPublishedAt={formattedPublishedAt}
+        bodyBlocks={bodyBlocks}
+        chapterByBlockIndex={chapterByBlockIndex}
+      />
 
-        <section class="space-y-6 md:mx-20 font-body text-base md:text-lg">
-          {
-            bodyBlocks.map((block, blockIndex) => {
-              if (!block || typeof block !== "object") return null;
-
-              if (
-                block.type === "h2" ||
-                block.type === "h3" ||
-                block.type === "h4"
-              ) {
-                const chapter = chapterByBlockIndex.get(blockIndex);
-
-                return (
-                  <h3
-                    id={chapter?.id}
-                    class="font-heading text-2xl mt-6 scroll-mt-28"
-                  >
-                    {block.text}
-                  </h3>
-                );
-              }
-
-              if (block.type === "paragraph") {
-                return <p>{block.text}</p>;
-              }
-
-              if (block.type === "image") {
-                return (
-                  <figure class="my-8">
-                    <img
-                      src={block.src}
-                      alt={block.alt || ""}
-                      class="w-full rounded-xl"
-                    />
-                    {block.caption && (
-                      <figcaption class="text-sm text-text/70 mt-2">
-                        {block.caption}
-                      </figcaption>
-                    )}
-                  </figure>
-                );
-              }
-
-              return null;
-            })
-          }
-        </section>
-      </article>
-
-      <aside class="md:col-start-2 md:row-start-2 mb-10 md:mb-0">
-        <h3 class="font-heading text-2xl text-right mb-4 md:mr-12">Chapters</h3>
+      <aside
+        class="md:col-start-2 md:row-start-2 mb-10 md:mb-0"
+        data-panel="chapters"
+      >
+        <h3
+          class="font-heading text-2xl text-center md:text-right mb-4 md:mr-12"
+        >
+          Chapters
+        </h3>
 
         {
           chapterItems.length ? (
-            <ul class="flex flex-col gap-3 md:items-end md:mr-12">
+            <ul class="flex flex-col gap-3 items-center md:items-end md:mr-12">
               {chapterItems.map((chapter) => (
                 <li>
                   <a
                     href={`#${chapter.id}`}
+                    data-chapter-link
                     class="font-body text-base text-text/85 hover:text-text transition-colors"
                   >
                     {chapter.title}
@@ -191,3 +156,92 @@ const formattedPublishedAt = article?.created_at
   <CallToAction />
   <Footer />
 </Layout>
+
+<style>
+  .article-tab-button {
+    box-shadow: -10px 10px 15px -5px rgba(255, 80, 80, 0.35) inset;
+    transition: all 0.2s ease-in-out;
+  }
+
+  .article-tab-button.is-active {
+    color: #fff;
+    box-shadow: -15px 10px 15px 2px rgba(255, 48, 48, 0.488) inset;
+  }
+
+  main[data-article-view="article"] [data-panel="chapters"] {
+    display: none;
+  }
+
+  main[data-article-view="chapters"] [data-panel="article"] {
+    display: none;
+  }
+
+  @media (min-width: 768px) {
+    main[data-article-view] [data-panel="article"] {
+      display: block;
+    }
+
+    main[data-article-view] [data-panel="chapters"] {
+      display: block;
+    }
+
+    .article-tab-button {
+      display: none;
+    }
+  }
+</style>
+
+<script>
+  const initArticleTabs = () => {
+    const main = document.querySelector("main[data-article-view]");
+    if (!main) return;
+
+    const buttons = main.querySelectorAll("[data-view-btn]");
+    const chapterLinks = main.querySelectorAll("[data-chapter-link]");
+    let currentView = main.getAttribute("data-article-view") || "article";
+
+    const setView = () => {
+      main.setAttribute("data-article-view", currentView);
+      buttons.forEach((btn) => {
+        btn.classList.toggle(
+          "is-active",
+          btn.getAttribute("data-view-btn") === currentView,
+        );
+      });
+    };
+
+    buttons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        currentView = btn.getAttribute("data-view-btn") || "article";
+        setView();
+      });
+    });
+
+    chapterLinks.forEach((link) => {
+      link.addEventListener("click", (event) => {
+        const targetHash = link.getAttribute("href") || "";
+        if (!targetHash.startsWith("#")) return;
+
+        const targetElement = main.querySelector(targetHash);
+        if (!targetElement) return;
+
+        event.preventDefault();
+        currentView = "article";
+        setView();
+
+        requestAnimationFrame(() => {
+          targetElement.scrollIntoView({ behavior: "smooth", block: "start" });
+          history.replaceState(null, "", targetHash);
+        });
+      });
+    });
+
+    setView();
+  };
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initArticleTabs);
+  } else {
+    initArticleTabs();
+  }
+</script>

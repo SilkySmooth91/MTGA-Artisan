@@ -1,0 +1,59 @@
+---
+type ChapterRef = {
+  id?: string;
+};
+
+type BodyBlock = {
+  type?: string;
+  text?: string;
+  src?: string;
+  alt?: string;
+  caption?: string;
+};
+
+const { bodyBlocks = [], chapterByBlockIndex = new Map() } = Astro.props as {
+  bodyBlocks?: BodyBlock[];
+  chapterByBlockIndex?: Map<number, ChapterRef>;
+};
+---
+
+<section class="space-y-6 md:mx-20 font-body text-base md:text-lg">
+  {
+    bodyBlocks.map((block, blockIndex) => {
+      if (!block || typeof block !== "object") return null;
+
+      if (block.type === "h2" || block.type === "h3" || block.type === "h4") {
+        const chapter = chapterByBlockIndex.get(blockIndex);
+
+        return (
+          <h3 id={chapter?.id} class="font-heading text-2xl mt-6 scroll-mt-28">
+            {block.text}
+          </h3>
+        );
+      }
+
+      if (block.type === "paragraph") {
+        return <p>{block.text}</p>;
+      }
+
+      if (block.type === "image") {
+        return (
+          <figure class="my-8">
+            <img
+              src={block.src}
+              alt={block.alt || ""}
+              class="w-full rounded-xl"
+            />
+            {block.caption && (
+              <figcaption class="text-sm text-text/70 mt-2">
+                {block.caption}
+              </figcaption>
+            )}
+          </figure>
+        );
+      }
+
+      return null;
+    })
+  }
+</section>
