@@ -8,26 +8,31 @@ const {
 } = Astro.props;
 
 const isLink = typeof href === "string" && href.length > 0;
+const classes = `secondary-button text-text font-body w-[140px] py-4 px-7 bg-primary rounded-md font-light md:text-base cursor-pointer inline-flex items-center justify-center text-center ${className ?? ""}`;
 ---
 
 {
   isLink ? (
     <a
       href={href}
-      class={`secondary-button text-text font-body w-[140px] py-4 px-7 bg-primary rounded-md font-light md:text-base cursor-pointer ${className ?? ""}`}
+      class={classes}
       aria-disabled={disabled ? "true" : undefined}
       {...rest}
     >
       <slot />
     </a>
   ) : (
-    <button
-      type={type}
-      disabled={disabled}
-      class={`secondary-button text-text font-body w-[140px] py-4 px-7 bg-primary rounded-md font-light md:text-base cursor-pointer ${className ?? ""}`}
-      {...rest}
-    >
+    <button type={type} disabled={disabled} class={classes} {...rest}>
       <slot />
     </button>
   )
 }
+
+<style>
+  .secondary-button,
+  .secondary-button:visited,
+  .secondary-button:hover,
+  .secondary-button:active {
+    color: var(--color-text);
+  }
+</style>

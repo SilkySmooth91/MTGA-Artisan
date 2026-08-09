@@ -100,8 +100,8 @@ export const formatDetails = {
         title: "Banlist",
         level: "h3",
         paragraphs: [
-          "Any card that can be crafted with a common or uncommon wildcard is legal, except cards that draft or conjure rare cards.",
-          "At the moment the list of cards that draft or conjure rare cards is the following:",
+          "Any card that can be crafted with a common or uncommon wildcard is legal, except cards that draft or conjure rare or mythic rare cards.",
+          "At the moment the list of cards that draft or conjure rare or mythic rare cards is the following:",
           "Big Spender",
           "Break Expectations",
           "Celestial Vault",
@@ -117,7 +117,7 @@ export const formatDetails = {
           "Quicksilver Lapidary",
           "Shoreline Scout",
           "Xander's Wake",
-          "Note: New cards that conjure or draft rares are not legal, even if not listed yet. Please notify staff so we can update the list."
+          "Note: New cards that conjure or draft rares or mythic rares are not legal, even if not listed yet. Please notify staff so we can update the list."
         ]
       }
     ]
@@ -159,7 +159,7 @@ export const formatDetails = {
           "Minimum 60-card deck",
           "Set the deck type to Traditional Timeless when building for Timeless Artisan",
           "Use Timeless Tournament Match when challenging other players",
-          "Any card that can be crafted with a common or uncommon wildcard is legal, <strong>including</strong> cards that draft or conjure rare cards"
+          "Any card that can be crafted with a common or uncommon wildcard is legal, <strong>including</strong> cards that draft or conjure rare or mythic cards"
         ],
         paragraphsAfter: [
           "The format does not rotate and has no set restrictions."

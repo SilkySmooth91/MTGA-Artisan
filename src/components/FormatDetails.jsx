@@ -1,6 +1,23 @@
 import { formatDetails } from "../data/formatDetails"
 import { formatsConfig } from "../data/formatsConfig"
 
+function renderInlineStrong(text, keyPrefix) {
+    if (typeof text !== "string" || text.length === 0) return text
+
+    const parts = text.split(/(<strong>.*?<\/strong>)/g)
+    if (parts.length === 1) return text
+
+    return parts.map((part, index) => {
+        const strongMatch = part.match(/^<strong>(.*?)<\/strong>$/)
+
+        if (strongMatch) {
+            return <strong key={`${keyPrefix}-strong-${index}`}>{strongMatch[1]}</strong>
+        }
+
+        return <span key={`${keyPrefix}-text-${index}`}>{part}</span>
+    })
+}
+
 export default function FormatDetails({ formatId, className = "" }) {
     if (!formatId) return null
 
@@ -24,7 +41,7 @@ export default function FormatDetails({ formatId, className = "" }) {
             <div className="mt-6 space-y-4">
                 {details.intro?.map((paragraph, index) => (
                     <p key={`intro-${index}`} className="font-body text-base text-white leading-relaxed">
-                        {paragraph}
+                        {renderInlineStrong(paragraph, `intro-${index}`)}
                     </p>
                 ))}
             </div>
@@ -39,14 +56,16 @@ export default function FormatDetails({ formatId, className = "" }) {
                                 key={`p-${sectionIndex}-${paragraphIndex}`}
                                 className="font-body text-base text-white leading-relaxed"
                             >
-                                {paragraph}
+                                {renderInlineStrong(paragraph, `p-${sectionIndex}-${paragraphIndex}`)}
                             </p>
                         ))}
 
                         {section.bullets?.length > 0 && (
                             <ul className="list-disc list-inside text-center md:list-outside md:pl-6 md:text-left space-y-1 font-body text-base text-white">
                                 {section.bullets.map((bullet, bulletIndex) => (
-                                    <li key={`b-${sectionIndex}-${bulletIndex}`}>{bullet}</li>
+                                    <li key={`b-${sectionIndex}-${bulletIndex}`}>
+                                        {renderInlineStrong(bullet, `b-${sectionIndex}-${bulletIndex}`)}
+                                    </li>
                                 ))}
                             </ul>
                         )}
@@ -56,7 +75,7 @@ export default function FormatDetails({ formatId, className = "" }) {
                                 key={`pa-${sectionIndex}-${paragraphAfterIndex}`}
                                 className="font-body text-base text-white leading-relaxed"
                             >
-                                {paragraph}
+                                {renderInlineStrong(paragraph, `pa-${sectionIndex}-${paragraphAfterIndex}`)}
                             </p>
                         ))}
                     </div>
