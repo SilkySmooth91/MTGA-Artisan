@@ -109,7 +109,7 @@ export default function FormatsGrid({ activeFormat, onSelect }) {
 
     return (
         <LayoutGroup>
-            <div className="w-full max-w-screen-2xl mx-auto px-4 md:px-8 lg:px-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-14 place-items-center">
+            <div className="w-full max-w-screen-2xl mx-auto px-4 md:px-8 lg:px-12 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-10 lg:gap-14 place-items-center">
                 {formatsConfig.map((format) => {
                     const isSelected = displayedFormat === format.id
                     const shouldFadeOut = Boolean(displayedFormat) && !isSelected
@@ -130,6 +130,7 @@ export default function FormatsGrid({ activeFormat, onSelect }) {
                             className={shouldFadeOut ? "pointer-events-none" : ""}
                         >
                             <BigButton
+                                className="xl:w-[240px] xl:h-[240px] 2xl:w-[305px] 2xl:h-[305px]"
                                 onClick={() => handleSelectFormat(format.id)}
                             >
                                 <img src={format.icon.src} alt={format.label} />
