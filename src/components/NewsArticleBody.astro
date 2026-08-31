@@ -9,12 +9,37 @@ type BodyBlock = {
   src?: string;
   alt?: string;
   caption?: string;
+  style?: string;
 };
 
 const { bodyBlocks = [], chapterByBlockIndex = new Map() } = Astro.props as {
   bodyBlocks?: BodyBlock[];
   chapterByBlockIndex?: Map<number, ChapterRef>;
 };
+
+const URL_REGEX = /https?:\/\/[^\s]+/g;
+
+// Splits paragraph text into plain-text and URL segments so links render as real <a> tags.
+function linkifyText(text: string = "") {
+  const segments: { text?: string; url?: string }[] = [];
+  let lastIndex = 0;
+  let match: RegExpExecArray | null;
+
+  URL_REGEX.lastIndex = 0;
+  while ((match = URL_REGEX.exec(text)) !== null) {
+    if (match.index > lastIndex) {
+      segments.push({ text: text.slice(lastIndex, match.index) });
+    }
+    segments.push({ url: match[0] });
+    lastIndex = match.index + match[0].length;
+  }
+
+  if (lastIndex < text.length) {
+    segments.push({ text: text.slice(lastIndex) });
+  }
+
+  return segments;
+}
 ---
 
 <section class="space-y-6 md:mx-20 font-body text-base md:text-lg">
@@ -33,7 +58,27 @@ const { bodyBlocks = [], chapterByBlockIndex = new Map() } = Astro.props as {
       }
 
       if (block.type === "paragraph") {
-        return <p>{block.text}</p>;
+        const segments = linkifyText(block.text || "");
+        const isItalic = block.style === "italic";
+
+        return (
+          <p class={`whitespace-pre-line${isItalic ? " italic" : ""}`}>
+            {segments.map((segment) =>
+              segment.url ? (
+                <a
+                  href={segment.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="text-primary underline break-all"
+                >
+                  {segment.url}
+                </a>
+              ) : (
+                segment.text
+              ),
+            )}
+          </p>
+        );
       }
 
       if (block.type === "image") {
