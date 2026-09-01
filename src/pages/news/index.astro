@@ -43,7 +43,10 @@ const filteredArticles = selectedCategory
   : allArticles;
 ---
 
-<Layout>
+<Layout
+  title="News | MTGA Artisan"
+  description="Le ultime notizie, guide e aggiornamenti sul formato Artisan di Magic: The Gathering Arena."
+>
   <Navbar />
   <TwoColumnsLayout>
     <ArticleList slot="main" articles={filteredArticles} />

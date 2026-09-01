@@ -11,7 +11,10 @@ import { getArticles } from "../lib/articles.js";
 const homeNews = await getArticles({ limit: 3 });
 ---
 
-<Layout>
+<Layout
+  title="MTGA Artisan | Tornei e community per il formato Artisan su MTGA"
+  description="MTGA Artisan — tornei, notizie e community per il formato Artisan su Magic: The Gathering Arena."
+>
   <Navbar />
   <Hero />
   <BigButtonsSection />

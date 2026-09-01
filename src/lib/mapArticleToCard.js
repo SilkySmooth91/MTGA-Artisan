@@ -7,6 +7,18 @@ function slugify(value = "") {
     .replace(/-+/g, "-");
 }
 
+function truncateSlug(slug, { maxWords = 4, maxLength = 50 } = {}) {
+  let result = slug.split("-").filter(Boolean).slice(0, maxWords).join("-");
+
+  if (result.length > maxLength) {
+    const truncated = result.slice(0, maxLength);
+    const lastDash = truncated.lastIndexOf("-");
+    result = lastDash > 0 ? truncated.slice(0, lastDash) : truncated;
+  }
+
+  return result;
+}
+
 export function mapArticleToCard(article) {
   const safeTitle = article?.title?.trim() || "Titolo articolo";
   const safeExcerpt =
@@ -18,7 +30,7 @@ export function mapArticleToCard(article) {
   const safeAuthor = article?.author?.trim() || "Redazione MTGA Artisan";
   const safeCategory = article?.category?.trim() || "General";
   const safeId = article?.id || "";
-  const safeSlug = slugify(safeTitle);
+  const safeSlug = truncateSlug(slugify(safeTitle));
 
   return {
     id: safeId,

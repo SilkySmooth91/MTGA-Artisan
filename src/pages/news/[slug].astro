@@ -39,7 +39,11 @@ const { bodyBlocks, chapterItems, chapterByBlockIndex, formattedPublishedAt } =
   prepareArticleContentData(article);
 ---
 
-<Layout>
+<Layout
+  title={`${article.title} | MTGA Artisan`}
+  description={article.excerpt}
+  image={article.img}
+>
   <Navbar />
 
   <main
