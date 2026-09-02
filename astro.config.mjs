@@ -10,7 +10,12 @@ import sitemap from '@astrojs/sitemap';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://www.mtgaartisan.com',
-  integrations: [react(), sitemap()],
+  integrations: [
+    react(),
+    sitemap({
+      filter: (page) => !page.includes('/comingSoon'),
+    }),
+  ],
 
   vite: {
     plugins: [tailwindcss()]
