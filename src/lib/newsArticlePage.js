@@ -15,7 +15,12 @@ export function prepareArticleContentData(article) {
   const chapterItems = bodyBlocks.reduce((acc, block, blockIndex) => {
     if (!block || typeof block !== "object") return acc;
 
-    if (block.type === "h2" || block.type === "h3" || block.type === "h4") {
+    if (
+      block.type === "h1" ||
+      block.type === "h2" ||
+      block.type === "h3" ||
+      block.type === "h4"
+    ) {
       const title = String(block.text || "").trim();
       if (!title) return acc;
 

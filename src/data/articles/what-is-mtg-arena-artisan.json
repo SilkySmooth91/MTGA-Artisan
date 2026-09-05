@@ -1,0 +1,698 @@
+[
+  {
+    "type": "h1",
+    "text": "What Is MTG Arena Artisan? A Veteran Player's Guide"
+  },
+  {
+    "type": "paragraph",
+    "text": "Greetings and salutations, my fellow spell-slingers!"
+  },
+  {
+    "type": "paragraph",
+    "text": "Allow me to introduce myself. I'm Scithos, a 30+ year veteran of the Magic: The Gathering community who first got hooked on the game while cracking Revised packs all those years ago."
+  },
+  {
+    "type": "paragraph",
+    "text": "Whether it was Limited or Constructed, sitting around a kitchen table, clicking away on MTGO or MTG Arena, or trying to find the right table number in a crowded tournament hall, Magic has been part of my life ever since."
+  },
+  {
+    "type": "paragraph",
+    "text": "And recently, I discovered a way of playing the game that quickly became one of my favorite Constructed experiences."
+  },
+  {
+    "type": "paragraph",
+    "text": "That format is <strong>Artisan</strong>."
+  },
+  {
+    "type": "h2",
+    "text": "What Is MTG Arena Artisan?"
+  },
+  {
+    "type": "paragraph",
+    "text": "The idea behind Artisan is beautifully simple: <strong>build your deck using only common and uncommon cards</strong>."
+  },
+  {
+    "type": "paragraph",
+    "text": "No rares. No mythic rares."
+  },
+  {
+    "type": "paragraph",
+    "text": "That might sound restrictive at first. You might even expect the games to feel like a watered-down version of Constructed Magic."
+  },
+  {
+    "type": "paragraph",
+    "text": "In my experience, the exact opposite is true."
+  },
+  {
+    "type": "paragraph",
+    "text": "Artisan still offers powerful decks, complex interactions, competitive games and plenty of opportunities to build something completely unexpected. What changes is where the power comes from."
+  },
+  {
+    "type": "paragraph",
+    "text": "Instead of relying on a handful of individually overwhelming rares or mythics, decks often need to create their power through synergy, efficiency and careful construction."
+  },
+  {
+    "type": "paragraph",
+    "text": "And that is exactly why I love it."
+  },
+  {
+    "type": "paragraph",
+    "text": "Artisan exists in different forms both digitally and on tabletop, but in this article I'm talking specifically about my experience playing <strong>Artisan on MTG Arena</strong> and with the MTGA Artisan community."
+  },
+  {
+    "type": "h2",
+    "text": "How I Discovered Artisan"
+  },
+  {
+    "type": "paragraph",
+    "text": "For many years, I played mostly Standard and Limited on and off."
+  },
+  {
+    "type": "paragraph",
+    "text": "I was particularly active in the years leading up to the COVID lockdowns. Then local events disappeared for many of us, and when organized play finally started returning, I found myself wanting to compete again."
+  },
+  {
+    "type": "paragraph",
+    "text": "There was a problem."
+  },
+  {
+    "type": "paragraph",
+    "text": "Several sets had been released while I was away from regular events. Getting back into competitive Constructed meant acquiring a lot of cards, and with Magic releasing more products and sets, keeping up no longer felt particularly appealing to me."
+  },
+  {
+    "type": "paragraph",
+    "text": "I missed competitive Magic, though."
+  },
+  {
+    "type": "paragraph",
+    "text": "I missed the community. I missed the mental challenge. I missed the extra intensity of tournament games, trying to outplay the person sitting across from me and, when the fickle Magic gods allowed it, pulling off something clever enough to steal a match."
+  },
+  {
+    "type": "paragraph",
+    "text": "Most of all, I missed meeting people through the game."
+  },
+  {
+    "type": "paragraph",
+    "text": "Then, after a draft one day, something clicked."
+  },
+  {
+    "type": "paragraph",
+    "text": "I realized that modern commons and uncommons are actually really good by the standards I grew up with."
+  },
+  {
+    "type": "paragraph",
+    "text": "So I started wondering:"
+  },
+  {
+    "type": "paragraph",
+    "text": "<strong>What would Magic look like if we simply removed rares altogether?</strong>"
+  },
+  {
+    "type": "paragraph",
+    "text": "After poking around online, I eventually found the <strong>MTGA Artisan community</strong> on Discord."
+  },
+  {
+    "type": "paragraph",
+    "text": "I joined."
+  },
+  {
+    "type": "paragraph",
+    "text": "I started brewing."
+  },
+  {
+    "type": "paragraph",
+    "text": "And I never looked back."
+  },
+  {
+    "type": "link",
+    "text": "If you want to see what the community is working on, join the MTGA Artisan Discord and say hello",
+    "href": "https://discord.gg/waDh4j62Yp"
+  },
+  {
+    "type": "h2",
+    "text": "Why Artisan Is More Powerful Than It Looks"
+  },
+  {
+    "type": "paragraph",
+    "text": "One of the first misconceptions people can have about Artisan is that the rarity restriction must produce weak decks."
+  },
+  {
+    "type": "paragraph",
+    "text": "It doesn't."
+  },
+  {
+    "type": "paragraph",
+    "text": "Modern Magic has reached a point where many commons and uncommons would have looked absurdly powerful years ago."
+  },
+  {
+    "type": "paragraph",
+    "text": "Take <strong>Dreadbore</strong> as an easy example. The card was originally printed at rare. In Pioneer Masters, it appeared at common."
+  },
+  {
+    "type": "paragraph",
+    "text": "And it is far from the only example."
+  },
+  {
+    "type": "paragraph",
+    "text": "Artisan has access to efficient removal, card advantage, powerful creatures, combo pieces, engines and highly synergistic archetypes."
+  },
+  {
+    "type": "paragraph",
+    "text": "You can play fair Magic."
+  },
+  {
+    "type": "paragraph",
+    "text": "You can play unfair Magic."
+  },
+  {
+    "type": "paragraph",
+    "text": "You can play aggro, control or combo."
+  },
+  {
+    "type": "paragraph",
+    "text": "And if you are a dedicated brewer, there are still plenty of strategies waiting to be discovered."
+  },
+  {
+    "type": "h3",
+    "text": "The Power Within..."
+  },
+  {
+    "type": "paragraph",
+    "text": "The cards may have smaller rarity symbols, but that does not mean the decks lack power."
+  },
+  {
+    "type": "h3",
+    "text": "...Is a Power Contained"
+  },
+  {
+    "type": "paragraph",
+    "text": "What changes is the <strong>ceiling</strong>."
+  },
+  {
+    "type": "paragraph",
+    "text": "The common-and-uncommon restriction creates a more consistent upper limit on how much a single card can dominate a game."
+  },
+  {
+    "type": "paragraph",
+    "text": "That distinction matters."
+  },
+  {
+    "type": "paragraph",
+    "text": "In Constructed environments filled with rares and mythics, entire strategies can sometimes be pushed aside because they simply cannot compete with the efficiency or raw impact of a small number of top-tier cards."
+  },
+  {
+    "type": "paragraph",
+    "text": "Artisan tends to compress that gap."
+  },
+  {
+    "type": "paragraph",
+    "text": "There will always be stronger and weaker decks, of course. There will be metagames, bad matchups and strategies that rise above the rest."
+  },
+  {
+    "type": "paragraph",
+    "text": "But the distance between \u201cplayable\u201d and \u201ccompetitive\u201d often feels smaller."
+  },
+  {
+    "type": "paragraph",
+    "text": "And that creates room for experimentation."
+  },
+  {
+    "type": "paragraph",
+    "text": "You can take an idea, polish it, tune it for the expected field and discover that the strange pile you started with can actually compete."
+  },
+  {
+    "type": "paragraph",
+    "text": "For a brewer, that is incredibly satisfying."
+  },
+  {
+    "type": "paragraph",
+    "text": "<strong>Artisan is a brewer's paradise.</strong>"
+  },
+  {
+    "type": "h2",
+    "text": "What Does the MTG Arena Artisan Meta Look Like?"
+  },
+  {
+    "type": "paragraph",
+    "text": "So, suppose I've convinced you."
+  },
+  {
+    "type": "paragraph",
+    "text": "You build a deck, queue up a direct challenge or enter an MTGA Artisan tournament."
+  },
+  {
+    "type": "paragraph",
+    "text": "What should you expect on the other side of the virtual table?"
+  },
+  {
+    "type": "paragraph",
+    "text": "For the most part, the answer is familiar."
+  },
+  {
+    "type": "paragraph",
+    "text": "<strong>Aggro. Control. Combo. Midrange. Synergy decks. Tribal strategies. Engines.</strong>"
+  },
+  {
+    "type": "paragraph",
+    "text": "The fundamentals of competitive Magic are still here."
+  },
+  {
+    "type": "paragraph",
+    "text": "Artisan does not reinvent what Magic is. Instead, it changes the tools players have available to solve familiar problems."
+  },
+  {
+    "type": "paragraph",
+    "text": "And there are two differences that stood out to me almost immediately."
+  },
+  {
+    "type": "h3",
+    "text": "Board Wipes Aren't Quite the Same"
+  },
+  {
+    "type": "paragraph",
+    "text": "Coming from traditional Constructed, I was used to cards like <strong>Wrath of God</strong> being the universal answer to creature-heavy boards."
+  },
+  {
+    "type": "paragraph",
+    "text": "Artisan usually makes things less straightforward."
+  },
+  {
+    "type": "paragraph",
+    "text": "Depending on the specific format and card pool, there are conditional sweepers and effects capable of controlling wide boards, but clean, unconditional \u201cdestroy everything\u201d buttons are much harder to come by."
+  },
+  {
+    "type": "paragraph",
+    "text": "At first, I thought that would be a problem."
+  },
+  {
+    "type": "paragraph",
+    "text": "Surely aggro decks would simply run wild and the entire format would become a chaotic mess of creatures turning sideways?"
+  },
+  {
+    "type": "paragraph",
+    "text": "I was wrong."
+  },
+  {
+    "type": "paragraph",
+    "text": "Instead, control players have to get creative."
+  },
+  {
+    "type": "paragraph",
+    "text": "You need to understand which threats matter, choose more specialized answers and build your interaction around the metagame rather than assuming one card can reset everything."
+  },
+  {
+    "type": "paragraph",
+    "text": "The success of decks such as <strong>Jeskai Control</strong> within our community has shown that control absolutely works in Artisan."
+  },
+  {
+    "type": "paragraph",
+    "text": "You just have to dig a little deeper into the card pool to find the right answers."
+  },
+  {
+    "type": "paragraph",
+    "text": "Personally, I think that makes deckbuilding more interesting."
+  },
+  {
+    "type": "h3",
+    "text": "Artisan Mana Bases Reward Discipline"
+  },
+  {
+    "type": "paragraph",
+    "text": "The second difference becomes obvious the moment you start building multicolor decks."
+  },
+  {
+    "type": "paragraph",
+    "text": "Untapped multicolor mana is not as freely available as it can be in rare-heavy Constructed formats."
+  },
+  {
+    "type": "paragraph",
+    "text": "At first, I hated this."
+  },
+  {
+    "type": "paragraph",
+    "text": "Now, I think it is one of Artisan's most interesting deckbuilding constraints."
+  },
+  {
+    "type": "paragraph",
+    "text": "In other Constructed formats, it can sometimes be relatively painless to add a second, third or even fourth color."
+  },
+  {
+    "type": "paragraph",
+    "text": "Artisan asks you to think harder about that decision."
+  },
+  {
+    "type": "paragraph",
+    "text": "How many tapped lands can your deck afford?"
+  },
+  {
+    "type": "paragraph",
+    "text": "How much does that splash actually improve your strategy?"
+  },
+  {
+    "type": "paragraph",
+    "text": "Can your early turns survive a slower mana base?"
+  },
+  {
+    "type": "paragraph",
+    "text": "Do you really need that third color?"
+  },
+  {
+    "type": "paragraph",
+    "text": "You can absolutely build ambitious rainbow piles."
+  },
+  {
+    "type": "paragraph",
+    "text": "You just need to earn them."
+  },
+  {
+    "type": "paragraph",
+    "text": "And finding a clever way to make the mana work is part of the fun."
+  },
+  {
+    "type": "h2",
+    "text": "MTG Arena Artisan Decks: Four Community Brews"
+  },
+  {
+    "type": "paragraph",
+    "text": "Theory only gets us so far."
+  },
+  {
+    "type": "paragraph",
+    "text": "The best way to understand what Artisan can do is to look at decks that people in the MTGA Artisan community have actually brought to competitive play."
+  },
+  {
+    "type": "paragraph",
+    "text": "Here are four examples: two from <strong>Standard Artisan</strong> and two from <strong>Historic Artisan</strong>."
+  },
+  {
+    "type": "paragraph",
+    "text": "They are very different decks, but together they show just how much complexity, power and creativity can exist below rare."
+  },
+  {
+    "type": "paragraph",
+    "text": "Decklists reflect the card pools and legality at the time of writing. MTG Arena formats and legal card pools can change over time.",
+    "style": "italic"
+  },
+  {
+    "type": "h3",
+    "text": "Standard Artisan: RumbleRoots by Lenz"
+  },
+  {
+    "type": "paragraph",
+    "text": "Lenz is one of the most prolific brewers in the MTGA Artisan community and has become closely associated with refining the <strong>Roots</strong> archetype in Standard Artisan."
+  },
+  {
+    "type": "decklist",
+    "title": "RumbleRoots by Lenz",
+    "content": "4 Llanowar Elves\n4 Molt Tender\n4 Rubblebelt Maverick\n4 Town Greeter\n2 Bushy Bodyguard\n2 Fang, Fearless l'Cie\n1 Vanille, Cheerful l'Cie\n1 Chupacabra Echo\n1 Curious Forager\n1 Dauntless Scrapbot\n1 Selesnya Archivist\n4 Insidious Roots\n4 Cache Grab\n3 Lively Dirge\n1 Midnight Tilling\n1 Earthrumbler\n13 Forest\n3 Swamp\n4 Strangled Cemetery\n2 Conduit Pylons\n\nSIDEBOARD:\n3 Soul-Guide Lantern\n2 Dredger's Insight\n2 Feed the Cycle\n2 Insidious Fungus\n1 Chalk Outline\n1 Diamond Weapon\n1 Dragon Sniper\n1 Earthrumbler\n1 Gastal Raider\n1 Virulent Emissary"
+  },
+  {
+    "type": "paragraph",
+    "text": "This is a powerful and resilient 75 capable of producing some outrageous finishing turns."
+  },
+  {
+    "type": "paragraph",
+    "text": "Even after fighting through graveyard hate and disruption, the deck can rebuild and suddenly threaten an enormous alpha strike."
+  },
+  {
+    "type": "paragraph",
+    "text": "I haven't had much luck against it myself."
+  },
+  {
+    "type": "paragraph",
+    "text": "I'm still hoping I'll eventually find the weak spot in the armor!"
+  },
+  {
+    "type": "paragraph",
+    "text": "Lenz has also written about the development of the deck and the decisions behind the final build, leading to plenty of discussion within the community."
+  },
+  {
+    "type": "link",
+    "text": "Read the RumbleRoots deck discussion",
+    "href": "#"
+  },
+  {
+    "type": "h3",
+    "text": "Standard Artisan: Azor-Finity by SilkySmooth"
+  },
+  {
+    "type": "paragraph",
+    "text": "Once new cards started appearing with those infamous words \u2014 \u201cAffinity for Artifacts\u201d \u2014 an Artisan artifact deck was probably inevitable."
+  },
+  {
+    "type": "paragraph",
+    "text": "Enter Azor-Finity."
+  },
+  {
+    "type": "decklist",
+    "title": "Azor-Finity by SilkySmooth",
+    "content": "4 Valkyrie Aerial Unit\n3 Memory Guardian\n3 Spyglass Siren\n2 Novice Inspector\n1 Benevolent River Spirit\n4 Case of the Filched Falcon\n4 Cryogen Relic\n4 Dusk Rose Reliquary\n4 Zoetic Glyph\n4 Nutrient Block\n2 Spring-Loaded Sawblades\n2 Voyage Home\n1 Soul-Guide Lantern\n6 Island\n6 Plains\n3 Abandoned Campground\n2 North Pole Gates\n2 Tranquil Cove\n2 Scene of the Crime\n1 Hidden Cataract\n\nSIDEBOARD:\n4 Ice Out\n3 Soul-Guide Lantern\n3 Annul\n2 Spring-Loaded Sawblades\n1 Glass Casket\n1 Master's Guide-Mural\n1 Valorous Stance"
+  },
+  {
+    "type": "paragraph",
+    "text": "SilkySmooth has put up impressive results with the strategy in Standard Artisan competition."
+  },
+  {
+    "type": "paragraph",
+    "text": "Cards such as <strong>Memory Guardian</strong>, <strong>Case of the Filched Falcon</strong> and <strong>Valkyrie Aerial Unit</strong> allow the deck to apply pressure through the air very quickly, while its artifact package gives it plenty of synergy on the ground."
+  },
+  {
+    "type": "paragraph",
+    "text": "Add card advantage and efficient interaction and you have a deck capable of doing much more than simply dumping cheap artifacts onto the battlefield."
+  },
+  {
+    "type": "paragraph",
+    "text": "I've played a similar version myself."
+  },
+  {
+    "type": "paragraph",
+    "text": "My professional assessment?"
+  },
+  {
+    "type": "paragraph",
+    "text": "It is extremely smashy."
+  },
+  {
+    "type": "paragraph",
+    "text": "And extremely fun."
+  },
+  {
+    "type": "h3",
+    "text": "Historic Artisan: Rocc'n Elves by Maik Shine"
+  },
+  {
+    "type": "paragraph",
+    "text": "Our first Historic deck comes from one of the heavy hitters of the MTGA Artisan Discord and, at the time of writing, our Server Champion: <strong>Maik Shine</strong>."
+  },
+  {
+    "type": "decklist",
+    "title": "Rocc'n Elves by Maik Shine",
+    "content": "4 Dionus, Elvish Archdruid\n4 Llanowar Elves\n4 Llanowar Tribe\n4 Priest of Titania\n4 Elvish Mystic\n4 Jaspera Sentinel\n4 Disciple of Freyalise\n4 Wirewood Symbiote\n4 Rocco, Cabaretti Caterer\n1 Skemfar Shadowsage\n1 Viconia, Nightsinger's Disciple\n1 Imodane's Recruiter\n1 Jaheira, Harper Emissary\n4 Winding Way\n4 Snow-Covered Forest\n4 Ancient Ziggurat\n4 Secluded Courtyard\n4 Unclaimed Territory\n\nSIDEBOARD:\n3 Reclamation Sage\n3 Skemfar Shadowsage\n3 Sorcerous Spyglass\n3 Tamiyo's Safekeeping\n2 Stone of Erech\n1 Cease/Desist"
+  },
+  {
+    "type": "paragraph",
+    "text": "Historic naturally offers a larger card pool, and this deck takes full advantage of it."
+  },
+  {
+    "type": "paragraph",
+    "text": "I knew I had to try it as soon as I saw the list."
+  },
+  {
+    "type": "paragraph",
+    "text": "And I can confirm: it is a wild ride."
+  },
+  {
+    "type": "paragraph",
+    "text": "<strong>Dionus, Elvish Archdruid</strong> is bananas."
+  },
+  {
+    "type": "paragraph",
+    "text": "The legendary Elf can dramatically increase your mana production while helping the rest of your board grow. Give the deck a few turns without meaningful interference and <strong>Rocco, Cabaretti Caterer</strong> can start finding exactly what the deck needs."
+  },
+  {
+    "type": "paragraph",
+    "text": "That might be <strong>Imodane's Recruiter</strong> to turn a freshly deployed army into an immediate attack."
+  },
+  {
+    "type": "paragraph",
+    "text": "It might be <strong>Skemfar Shadowsage</strong> to finish the opponent or buy enough life to stay alive."
+  },
+  {
+    "type": "paragraph",
+    "text": "Or Rocco can simply find the right silver bullet for the situation."
+  },
+  {
+    "type": "paragraph",
+    "text": "Meanwhile, <strong>Winding Way</strong> helps keep the gas flowing."
+  },
+  {
+    "type": "paragraph",
+    "text": "The result is an explosive deck that can go from \u201cmanageable\u201d to \u201cyou're probably dead\u201d remarkably quickly."
+  },
+  {
+    "type": "h3",
+    "text": "Historic Artisan: LandStorm by Mister Floris"
+  },
+  {
+    "type": "paragraph",
+    "text": "And now for something completely different."
+  },
+  {
+    "type": "paragraph",
+    "text": "<strong>LandStorm</strong> is a control/combo deck built around an unusual source of damage:"
+  },
+  {
+    "type": "paragraph",
+    "text": "Lands."
+  },
+  {
+    "type": "decklist",
+    "title": "LandStorm by Mister Floris",
+    "content": "4 Aftermath Analyst\n4 Trinket Mage\n1 Skyshroud Lookout\n4 Malevolent Rumble\n4 Outcaster Greenblade\n4 Pop Quiz\n4 Spelunking\n4 Stock Up\n3 Zuran Orb\n1 Aether Spellbomb\n1 Expedition Map\n1 Haywire Mite\n1 Incubation Sac\n4 Forest\n4 Lush Oasis\n4 Port of Karfell\n4 Crumbling Vestige\n2 Soured Springs\n3 Conduit Pylons\n1 Tree of Tales\n1 Darkmoss Bridge\n1 Arid Archway\n\nSIDEBOARD:\n1 Bojuka Bog\n1 Boomerang Basics\n1 Cracked Earth Technique\n1 Haywire Mite\n1 It'll Quench Ya!\n1 Origin of Metalbending\n1 Pest Summoning\n1 Ruinous Waterbending\n1 Scarring Memories\n1 Seismic Sense\n1 Sokka's Haiku\n1 Stone of Erech\n1 Tormod's Crypt\n1 True Ancestry\n1 Zuko's Exile"
+  },
+  {
+    "type": "paragraph",
+    "text": "I'll admit that the first time I saw the list, I had trouble figuring out exactly what was happening."
+  },
+  {
+    "type": "paragraph",
+    "text": "\u201cOkay, so you bring a bunch of lands back with Aftermath Analyst, do some damage... and then what?\u201d"
+  },
+  {
+    "type": "paragraph",
+    "text": "Then I looked a little closer."
+  },
+  {
+    "type": "paragraph",
+    "text": "One of the key pieces is <strong>Spelunking</strong>."
+  },
+  {
+    "type": "paragraph",
+    "text": "Lands enter the battlefield tapped for a reason. Remove that drawback and suddenly a lot of otherwise reasonable lands start doing unreasonable things."
+  },
+  {
+    "type": "paragraph",
+    "text": "Even something like <strong>Arid Archway</strong> changes dramatically once it can enter untapped."
+  },
+  {
+    "type": "paragraph",
+    "text": "Combine that with <strong>Zuran Orb</strong>, <strong>Aftermath Analyst</strong> and <strong>Port of Karfell</strong>, and the deck can assemble an engine where lands are sacrificed, returned to the battlefield and reused."
+  },
+  {
+    "type": "paragraph",
+    "text": "Once the deck reaches critical mass, you can float your mana, sacrifice your lands to Zuran Orb, activate Aftermath Analyst and bring everything back \u2014 including your Deserts, <strong>Crumbling Vestige</strong> and <strong>Port of Karfell</strong>."
+  },
+  {
+    "type": "paragraph",
+    "text": "Then you start doing it again."
+  },
+  {
+    "type": "paragraph",
+    "text": "I had the pleasure of getting absolutely rocked by this list in the last round of a tournament after entering that match without having dropped a game."
+  },
+  {
+    "type": "paragraph",
+    "text": "It was a sight to behold."
+  },
+  {
+    "type": "paragraph",
+    "text": "And another reminder that Zuran Orb is the worst."
+  },
+  {
+    "type": "paragraph",
+    "text": "Ha!"
+  },
+  {
+    "type": "h2",
+    "text": "Artisan Is More Than One Format"
+  },
+  {
+    "type": "paragraph",
+    "text": "The examples above come from Standard and Historic, but that is only part of what we play."
+  },
+  {
+    "type": "paragraph",
+    "text": "Within the MTGA Artisan community, the common-and-uncommon restriction can be applied to different card pools and different styles of event."
+  },
+  {
+    "type": "paragraph",
+    "text": "<strong>Standard Artisan</strong> gives us a rotating environment that changes as Standard evolves."
+  },
+  {
+    "type": "paragraph",
+    "text": "<strong>Historic Artisan</strong> opens up a much larger collection of cards and interactions."
+  },
+  {
+    "type": "paragraph",
+    "text": "<strong>Timeless Artisan</strong> pushes the concept even further, offering a higher-powered environment built from Arena's enormous card pool."
+  },
+  {
+    "type": "paragraph",
+    "text": "And then there are events such as <strong>Artisan Realms</strong>, where deckbuilding is restricted around a particular plane, group of sets or theme."
+  },
+  {
+    "type": "paragraph",
+    "text": "That variety is one of the reasons I keep enjoying the format."
+  },
+  {
+    "type": "paragraph",
+    "text": "When one environment starts to feel familiar, there is another one waiting to be explored."
+  },
+  {
+    "type": "paragraph",
+    "text": "Another card pool."
+  },
+  {
+    "type": "paragraph",
+    "text": "Another strange interaction."
+  },
+  {
+    "type": "paragraph",
+    "text": "Another deck to brew."
+  },
+  {
+    "type": "h2",
+    "text": "Why You Should Try MTG Arena Artisan"
+  },
+  {
+    "type": "paragraph",
+    "text": "If you enjoy competitive Magic but want an environment where deckbuilding and synergy can matter more than simply collecting the strongest rares, Artisan is worth trying."
+  },
+  {
+    "type": "paragraph",
+    "text": "If you love brewing, it is worth trying."
+  },
+  {
+    "type": "paragraph",
+    "text": "If you have stacks of common and uncommon wildcards sitting unused on Arena, it is definitely worth trying."
+  },
+  {
+    "type": "paragraph",
+    "text": "And if you simply want to meet people who enjoy experimenting with Magic in a slightly different way, come find us."
+  },
+  {
+    "type": "paragraph",
+    "text": "The MTGA Artisan community runs tournaments, tests decks, discusses formats, shares brews and spends a frankly unreasonable amount of time debating common and uncommon Magic cards."
+  },
+  {
+    "type": "paragraph",
+    "text": "You'll fit right in."
+  },
+  {
+    "type": "link",
+    "text": "Join the MTGA Artisan community on Discord",
+    "href": "https://discord.gg/waDh4j62Yp"
+  },
+  {
+    "type": "paragraph",
+    "text": "Thanks for reading, and until next time:"
+  },
+  {
+    "type": "paragraph",
+    "text": "Happy spell-slingin', my wizards."
+  },
+  {
+    "type": "paragraph",
+    "text": "\u2014 <strong>Scithos</strong>"
+  }
+]
