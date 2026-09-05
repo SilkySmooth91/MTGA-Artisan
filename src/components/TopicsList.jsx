@@ -21,9 +21,13 @@ export default function TopicsList({
     [activeTopic, topics],
   );
 
-  const [localActive, setLocalActive] = useState(initialTopic);
+  const [localActive, setLocalActive] = useState(() => {
+    if (typeof window === "undefined") return initialTopic;
+    return new URLSearchParams(window.location.search).get(queryKey) || initialTopic;
+  });
   const currentActive = onTopicChange ? activeTopic : localActive;
 
+  // Updates the URL without a full page reload, then notifies the article list to re-filter.
   const navigateWithCategory = (topic) => {
     if (typeof window === "undefined") return;
 
@@ -34,7 +38,10 @@ export default function TopicsList({
       nextUrl.searchParams.delete(queryKey);
     }
 
-    window.location.assign(nextUrl.toString());
+    window.history.pushState(null, "", nextUrl.toString());
+    window.dispatchEvent(
+      new CustomEvent("articles:filter", { detail: { category: topic } }),
+    );
   };
 
   return (

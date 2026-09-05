@@ -35,12 +35,6 @@ const activeTopic =
   topics.find((topic) => normalize(topic) === normalize(selectedCategory)) ||
   topics[0] ||
   "";
-
-const filteredArticles = selectedCategory
-  ? allArticles.filter(
-      (article) => normalize(article.category) === normalize(selectedCategory),
-    )
-  : allArticles;
 ---
 
 <Layout
@@ -49,7 +43,7 @@ const filteredArticles = selectedCategory
 >
   <Navbar />
   <TwoColumnsLayout>
-    <ArticleList slot="main" articles={filteredArticles} />
+    <ArticleList slot="main" articles={allArticles} />
     <TopicsList
       slot="topic-list"
       topics={topics}
@@ -62,3 +56,32 @@ const filteredArticles = selectedCategory
   <CallToAction />
   <Footer />
 </Layout>
+
+<script>
+  const normalize = (value: string | null = "") =>
+    String(value ?? "")
+      .trim()
+      .toLowerCase();
+
+  function applyFilter(category: string | null) {
+    const target = normalize(category);
+    document
+      .querySelectorAll<HTMLElement>(".article-list [data-category]")
+      .forEach((card) => {
+        const matches = !target || normalize(card.dataset.category) === target;
+        card.classList.toggle("hidden", !matches);
+      });
+  }
+
+  applyFilter(new URLSearchParams(window.location.search).get("category"));
+
+  window.addEventListener("articles:filter", (event) => {
+    applyFilter(
+      (event as CustomEvent<{ category: string }>).detail?.category ?? null,
+    );
+  });
+
+  window.addEventListener("popstate", () => {
+    applyFilter(new URLSearchParams(window.location.search).get("category"));
+  });
+</script>

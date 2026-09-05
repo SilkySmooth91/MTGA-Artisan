@@ -6,6 +6,7 @@ interface Props {
   excerpt?: string;
   imageUrl?: string;
   href?: string;
+  category?: string;
 }
 
 const {
@@ -13,11 +14,13 @@ const {
   excerpt = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
   imageUrl = art1.src,
   href = "#",
+  category = "",
 } = Astro.props;
 ---
 
 <article
   class="card aspect-[455/297] md:w-[860px] md:h-[441px] md:aspect-[860/441] rounded-[32px]"
+  data-category={category}
 >
   <div
     class="group relative flex items-end justify-center w-full h-full rounded-[32px] overflow-hidden shadow-lg"
