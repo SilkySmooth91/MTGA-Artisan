@@ -100,6 +100,12 @@ import heroLogo from "../assets/hero_logo.webp";
       });
     });
 
+    // Jump back to the "Articles" tab on mobile once a topic filter is applied.
+    window.addEventListener("articles:filter", () => {
+      currentView = "main";
+      setView();
+    });
+
     setView();
   };
 
