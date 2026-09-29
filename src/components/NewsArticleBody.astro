@@ -89,7 +89,7 @@ function parseInlineText(text: string = "") {
           <p class={`whitespace-pre-line${isItalic ? " italic" : ""}`}>
             {parts.map((part) =>
               part.segments.map((segment) =>
-                segment.url ? (
+                segment.url ?
                   <a
                     href={segment.url}
                     target="_blank"
@@ -98,11 +98,8 @@ function parseInlineText(text: string = "") {
                   >
                     {segment.url}
                   </a>
-                ) : part.bold ? (
-                  <strong>{segment.text}</strong>
-                ) : (
-                  segment.text
-                ),
+                : part.bold ? <strong>{segment.text}</strong>
+                : segment.text,
               ),
             )}
           </p>
@@ -147,7 +144,16 @@ function parseInlineText(text: string = "") {
             />
             {block.caption && (
               <figcaption class="text-sm text-text/70 mt-2">
-                {block.caption}
+                {block.href ?
+                  <a
+                    href={block.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="text-primary underline"
+                  >
+                    {block.caption}
+                  </a>
+                : block.caption}
               </figcaption>
             )}
           </figure>
