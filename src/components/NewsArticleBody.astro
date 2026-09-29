@@ -13,6 +13,8 @@ type BodyBlock = {
   title?: string;
   content?: string;
   href?: string;
+  width?: number;
+  height?: number;
 };
 
 const { bodyBlocks = [], chapterByBlockIndex = new Map() } = Astro.props as {
@@ -135,15 +137,23 @@ function parseInlineText(text: string = "") {
       }
 
       if (block.type === "image") {
+        // Defaults to a Magic card's proportions (63:88) at a card-sized width; override per block via width/height.
+        const imgWidth = block.width || 224;
+        const imgHeight = block.height;
+
         return (
-          <figure class="my-8">
+          <figure class="my-8 flex flex-col items-center">
             <img
               src={block.src}
               alt={block.alt || ""}
-              class="w-full rounded-xl"
+              style={{
+                width: `${imgWidth}px`,
+                height: imgHeight ? `${imgHeight}px` : undefined,
+              }}
+              class={`${imgHeight ? "" : "aspect-63/88"} object-cover rounded-xl mx-auto`}
             />
             {block.caption && (
-              <figcaption class="text-sm text-text/70 mt-2">
+              <figcaption class="text-sm text-text/70 mt-2 text-center">
                 {block.href ?
                   <a
                     href={block.href}
