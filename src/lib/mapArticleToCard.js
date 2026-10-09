@@ -30,15 +30,20 @@ export function mapArticleToCard(article) {
   const safeAuthor = article?.author?.trim() || "Redazione MTGA Artisan";
   const safeCategory = article?.category?.trim() || "General";
   const safeId = article?.id || "";
-  const safeSlug = truncateSlug(slugify(safeTitle));
+  // Prefer the DB-stored slug; fall back to a title+id slug until it's populated.
+  const titleSlug = truncateSlug(slugify(safeTitle));
+  const safeSlug =
+    article?.slug?.trim() ||
+    (safeId ? `${titleSlug}-${safeId}` : titleSlug);
 
   return {
     id: safeId,
+    slug: safeSlug,
     title: safeTitle,
     excerpt: safeExcerpt,
     imageUrl: safeImageUrl,
     author: safeAuthor,
     category: safeCategory,
-    href: safeId ? `/news/${safeSlug}-${safeId}` : `/news/${safeSlug}`,
+    href: `/news/${safeSlug}`,
   };
 }

@@ -70,7 +70,7 @@ export async function getArticles({limit} = {}) {
     const { data, error } = await runQueryWithRetry((signal) => {
         let query = supabase
           .from('articles')
-          .select("id, title, excerpt, img, author, category, created_at")
+          .select("id, slug, title, excerpt, img, author, category, created_at")
           .order('created_at', { ascending: false })
           .abortSignal(signal);
 
@@ -97,21 +97,19 @@ function extractArticleIdFromSlug(slug = "") {
   return match ? match[1] : null;
 }
 
+const ARTICLE_DETAIL_COLUMNS =
+  "id, slug, title, excerpt, img, author, category, body, created_at, updated_at";
+
 export async function getArticleBySlug(slug) {
   if (!hasSupabaseEnv || !supabase || !slug) {
-    return null;
-  }
-
-  const articleId = extractArticleIdFromSlug(slug);
-  if (!articleId) {
     return null;
   }
 
   const { data, error } = await runQueryWithRetry((signal) => (
     supabase
       .from("articles")
-      .select("id, title, excerpt, img, author, category, body, created_at, updated_at")
-      .eq("id", articleId)
+      .select(ARTICLE_DETAIL_COLUMNS)
+      .eq("slug", slug)
       .abortSignal(signal)
       .maybeSingle()
   ), 'article detail fetch');
@@ -121,5 +119,29 @@ export async function getArticleBySlug(slug) {
     return null;
   }
 
-  return data ?? null;
+  if (data) {
+    return data;
+  }
+
+  // Legacy URLs embedded the article UUID at the end of the slug; keep old links working.
+  const legacyId = extractArticleIdFromSlug(slug);
+  if (!legacyId) {
+    return null;
+  }
+
+  const legacy = await runQueryWithRetry((signal) => (
+    supabase
+      .from("articles")
+      .select(ARTICLE_DETAIL_COLUMNS)
+      .eq("id", legacyId)
+      .abortSignal(signal)
+      .maybeSingle()
+  ), 'legacy article detail fetch');
+
+  if (legacy.error) {
+    console.error("Error fetching article detail:", legacy.error.message);
+    return null;
+  }
+
+  return legacy.data ?? null;
 }
