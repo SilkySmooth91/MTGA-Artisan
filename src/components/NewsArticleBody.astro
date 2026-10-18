@@ -15,6 +15,8 @@ type BodyBlock = {
   href?: string;
   width?: number;
   height?: number;
+  headers?: string[];
+  rows?: string[][];
 };
 
 const { bodyBlocks = [], chapterByBlockIndex = new Map() } = Astro.props as {
@@ -118,6 +120,44 @@ function parseInlineText(text: string = "") {
               {block.content || "Decklist coming soon."}
             </div>
           </details>
+        );
+      }
+
+      if (block.type === "table") {
+        const headers = block.headers || [];
+        const rows = block.rows || [];
+
+        return (
+          <div class="my-6 overflow-x-auto rounded-xl border border-primary/30">
+            <table class="w-full border-collapse text-sm md:text-base">
+              {headers.length > 0 && (
+                <thead>
+                  <tr class="bg-primary/20">
+                    {headers.map((header) => (
+                      <th class="px-4 py-2 text-left font-heading font-semibold">
+                        {header}
+                      </th>
+                    ))}
+                  </tr>
+                </thead>
+              )}
+              <tbody>
+                {rows.map((row, rowIndex) => (
+                  <tr
+                    class={
+                      rowIndex % 2 === 0 ?
+                        "bg-background/40"
+                      : "bg-background/20"
+                    }
+                  >
+                    {row.map((cell) => (
+                      <td class="px-4 py-2 text-text/80">{cell}</td>
+                    ))}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         );
       }
 
