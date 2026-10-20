@@ -187,10 +187,11 @@ function parseInlineText(text: string = "") {
               src={block.src}
               alt={block.alt || ""}
               style={{
-                width: `${imgWidth}px`,
-                height: imgHeight ? `${imgHeight}px` : undefined,
+                maxWidth: `${imgWidth}px`,
+                aspectRatio:
+                  imgHeight ? `${imgWidth} / ${imgHeight}` : undefined,
               }}
-              class={`${imgHeight ? "" : "aspect-63/88"} object-cover rounded-xl mx-auto`}
+              class={`w-full h-auto ${imgHeight ? "" : "aspect-63/88"} object-cover rounded-xl mx-auto`}
             />
             {block.caption && (
               <figcaption class="text-sm text-text/70 mt-2 text-center">
