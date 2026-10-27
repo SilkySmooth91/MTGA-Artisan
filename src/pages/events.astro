@@ -1,0 +1,31 @@
+---
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+import CallToAction from "../components/CallToAction.astro";
+import EventsList from "../components/EventsList.jsx";
+import Layout from "../layouts/Layout.astro";
+import { getPastEvents, getUpcomingEvents } from "../lib/events.js";
+
+// Build-time snapshot for SEO and first paint; the island refreshes it in the browser.
+const [upcoming, past] = await Promise.all([
+  getUpcomingEvents(),
+  getPastEvents(),
+]);
+---
+
+<Layout
+  title="Events | MTGA Artisan"
+  description="Upcoming and past tournaments organized by the MTGA Artisan community."
+>
+  <Navbar />
+  <main class="w-full max-w-6xl mx-auto px-4 md:px-0 py-16">
+    <h1 class="font-heading text-6xl text-primary text-center mb-16">Events</h1>
+    <EventsList
+      client:load
+      initialUpcoming={upcoming}
+      initialPast={past}
+    />
+  </main>
+  <CallToAction />
+  <Footer />
+</Layout>

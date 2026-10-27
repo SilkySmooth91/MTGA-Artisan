@@ -25,7 +25,7 @@ function isRetryableError(error) {
   ].some((token) => message.includes(token));
 }
 
-async function runQueryWithRetry(queryFactory, contextLabel) {
+export async function runQueryWithRetry(queryFactory, contextLabel) {
   let lastError = null;
 
   for (let attempt = 0; attempt <= RETRY_DELAYS_MS.length; attempt += 1) {
