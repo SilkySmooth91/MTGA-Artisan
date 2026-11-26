@@ -25,8 +25,7 @@ const { bodyBlocks = [], chapterByBlockIndex = new Map() } = Astro.props as {
 };
 
 const URL_REGEX = /https?:\/\/[^\s]+/g;
-const STRONG_SPLIT_REGEX = /(<strong>.*?<\/strong>)/g;
-const STRONG_MATCH_REGEX = /^<strong>(.*?)<\/strong>$/;
+const INLINE_TAG_REGEX = /<(\/?)(strong|em)>|<a href="([^"]+)">|<\/a>/g;
 
 // Splits plain text into plain-text and URL segments so links render as real <a> tags.
 function linkifyText(text: string = "") {
@@ -50,18 +49,45 @@ function linkifyText(text: string = "") {
   return segments;
 }
 
-// Splits paragraph text into bold/plain segments (via <strong> tags) then linkifies each plain part.
+// Splits paragraph text into parts carrying bold/italic/link state (via <strong>, <em> and <a href="..."> tags, nesting allowed) then linkifies each part.
 function parseInlineText(text: string = "") {
-  return text
-    .split(STRONG_SPLIT_REGEX)
-    .filter((part) => part.length > 0)
-    .map((part) => {
-      const strongMatch = part.match(STRONG_MATCH_REGEX);
-      if (strongMatch) {
-        return { bold: true, segments: [{ text: strongMatch[1] }] };
-      }
-      return { bold: false, segments: linkifyText(part) };
+  const parts: {
+    bold: boolean;
+    italic: boolean;
+    href?: string;
+    segments: { text?: string; url?: string }[];
+  }[] = [];
+  let bold = false;
+  let italic = false;
+  let href: string | undefined;
+  let lastIndex = 0;
+  let match: RegExpExecArray | null;
+
+  const pushChunk = (chunk: string) => {
+    if (chunk.length === 0) return;
+    parts.push({
+      bold,
+      italic,
+      href,
+      segments: href ? [{ text: chunk }] : linkifyText(chunk),
     });
+  };
+
+  INLINE_TAG_REGEX.lastIndex = 0;
+  while ((match = INLINE_TAG_REGEX.exec(text)) !== null) {
+    pushChunk(text.slice(lastIndex, match.index));
+    if (match[2]) {
+      const isOpening = match[1] !== "/";
+      if (match[2] === "strong") bold = isOpening;
+      else italic = isOpening;
+    } else {
+      href = match[3];
+    }
+    lastIndex = match.index + match[0].length;
+  }
+  pushChunk(text.slice(lastIndex));
+
+  return parts;
 }
 ---
 
@@ -92,19 +118,32 @@ function parseInlineText(text: string = "") {
         return (
           <p class={`whitespace-pre-line${isItalic ? " italic" : ""}`}>
             {parts.map((part) =>
-              part.segments.map((segment) =>
-                segment.url ?
-                  <a
-                    href={segment.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="text-primary underline break-all"
-                  >
-                    {segment.url}
-                  </a>
-                : part.bold ? <strong>{segment.text}</strong>
-                : segment.text,
-              ),
+              part.segments.map((segment) => {
+                const content =
+                  segment.url ?
+                    <a
+                      href={segment.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="text-primary underline break-all"
+                    >
+                      {segment.url}
+                    </a>
+                  : segment.text;
+                const linked =
+                  part.href ?
+                    <a
+                      href={part.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="text-primary underline"
+                    >
+                      {content}
+                    </a>
+                  : content;
+                const italicContent = part.italic ? <em>{linked}</em> : linked;
+                return part.bold ? <strong>{italicContent}</strong> : italicContent;
+              }),
             )}
           </p>
         );
