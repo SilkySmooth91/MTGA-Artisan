@@ -18,8 +18,12 @@ const [upcoming, past] = await Promise.all([
   description="Upcoming and past tournaments organized by the MTGA Artisan community."
 >
   <Navbar />
-  <main class="w-full max-w-6xl mx-auto px-4 md:px-0 py-16">
-    <h1 class="font-heading text-6xl text-primary text-center mb-16">Events</h1>
+  <main class="mx-auto w-full max-w-6xl px-4 py-16 md:px-6">
+    <h1
+      class="mb-16 text-center font-heading text-6xl text-primary md:text-7xl"
+    >
+      Events
+    </h1>
     <EventsList
       client:load
       initialUpcoming={upcoming}
