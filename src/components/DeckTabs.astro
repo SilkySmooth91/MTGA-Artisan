@@ -1,0 +1,30 @@
+---
+import { DECK_FORMATS } from "../lib/decks.js";
+
+const { activeFormat = null } = Astro.props as {
+  activeFormat?: string | null;
+};
+
+const tabs = [
+  { slug: null, label: "All", href: "/decks" },
+  ...DECK_FORMATS.map((format) => ({
+    slug: format.slug,
+    label: format.label,
+    href: `/decks/${format.slug}`,
+  })),
+];
+---
+
+<nav aria-label="Deck formats" class="deck-tabs">
+  {
+    tabs.map((tab) => (
+      <a
+        href={tab.href}
+        class:list={["deck-tab", { "is-active": tab.slug === activeFormat }]}
+        aria-current={tab.slug === activeFormat ? "page" : undefined}
+      >
+        {tab.label}
+      </a>
+    ))
+  }
+</nav>

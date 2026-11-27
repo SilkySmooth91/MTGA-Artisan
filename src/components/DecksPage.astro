@@ -1,0 +1,47 @@
+---
+import CallToAction from "./CallToAction.astro";
+import DecksList from "./DecksList.jsx";
+import DeckTabs from "./DeckTabs.astro";
+import Footer from "./Footer.astro";
+import Navbar from "./Navbar.astro";
+import Layout from "../layouts/Layout.astro";
+import { DECK_FORMATS, getDecksPage } from "../lib/decks.js";
+import "../styles/decks.css";
+
+const { activeFormat = null } = Astro.props as {
+  activeFormat?: string | null;
+};
+
+const formatLabel =
+  DECK_FORMATS.find((format) => format.slug === activeFormat)?.label ?? null;
+const cutoff = new Date().toISOString();
+const initialPage = await getDecksPage({
+  format: activeFormat,
+  before: cutoff,
+});
+---
+
+<Layout
+  title={`${formatLabel ? `${formatLabel} ` : ""}Decks | MTGA Artisan`}
+  description={`Recent ${formatLabel ?? "Artisan"} decklists from MTGA Artisan events.`}
+>
+  <Navbar />
+
+  <main class="mx-auto w-full max-w-6xl px-4 py-16 md:px-6">
+    <h1
+      class="mb-16 text-center font-heading text-6xl text-primary md:text-7xl"
+    >
+      Decks
+    </h1>
+
+    <DeckTabs activeFormat={activeFormat} />
+    <DecksList
+      client:load
+      format={activeFormat}
+      initialPage={initialPage}
+    />
+  </main>
+
+  <CallToAction />
+  <Footer />
+</Layout>

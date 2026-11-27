@@ -1,0 +1,15 @@
+---
+import DecksPage from "../../components/DecksPage.astro";
+import { DECK_FORMATS } from "../../lib/decks.js";
+
+export function getStaticPaths() {
+  return DECK_FORMATS.map((format) => ({
+    params: { format: format.slug },
+    props: { activeFormat: format.slug },
+  }));
+}
+
+const { activeFormat } = Astro.props as { activeFormat: string };
+---
+
+<DecksPage activeFormat={activeFormat} />
